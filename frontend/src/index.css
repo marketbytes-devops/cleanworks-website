@@ -1,4 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Dolce Vita Heavy';
+  src: url('/frontend/public/Fonts/DolceVitaHeavyBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
 
 html, body {
   margin: 0;
@@ -6,3 +14,19 @@ html, body {
   width: 100%;
   overflow-x: hidden;
 }
+
+.font-dolce {
+  font-family: 'Dolce Vita Heavy', sans-serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
