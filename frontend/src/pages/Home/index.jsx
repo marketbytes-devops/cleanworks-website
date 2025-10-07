@@ -294,9 +294,10 @@ const Home = () => {
                       <span className="bg-[#6EA01E] px-3 py-1 rounded text-base sm:text-xl">
                         Clean Works Cleaning Services
                       </span>
-                      <h1 className="text-sm sm:text-3xl md:text-[40px] font-semibold mt-2">
-                        BRINGING FRESHNESS TO EVERY CORNER OF QATAR
-                      </h1>
+                      <h1 className="text-sm sm:text-3xl md:text-[40px] font-dolce mt-2">
+  BRINGING FRESHNESS TO EVERY CORNER OF QATAR
+</h1>
+
                       <Button
                         className="sm:mt-4 mt-0 px-6 py-2 sm:px-8 sm:py-3 bg-yellow-500 hover:bg-[#272469] 
                                   font-poppins rounded-full flex items-center gap-2"
