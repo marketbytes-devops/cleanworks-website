@@ -26,6 +26,8 @@ import HandshakeIcon from "../../Components/Icons/HandshakeIcon";
 import ProfessionIcon from "../../Components/Icons/ProfessionIcon";
 import JanitorialIcon from "../../Components/Icons/JanitorialIcon";
 import TestimonialsImg1 from "../../Components/Icons/TestimonialsImg1.jpg";
+import TestimonialsImg2 from "../../assets/TestimonialsImg2.jpg";
+import TestimonialsImg3 from "../../assets/TestimonialsImg3.jpg";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import { FaStar, FaQuoteRight } from "react-icons/fa";
 
@@ -119,85 +121,37 @@ const Home = () => {
       name: "Alexa Bliss",
       image: TestimonialsImg1,
       text: "Training programs can bring you a super exciting experience of learning through online! You never face any negative experience while enjoying your classes Awesome site, on the top advertising a Courses available available business having..",
-      rating: 5,
+      rating: 4,
     },
     {
       id: 2,
       name: "John Doe",
-      image: TestimonialsImg1,
+      image: TestimonialsImg2,
       text: "Excellent service! The cleaning team was professional and thorough. My home has never been cleaner. Highly recommended!",
-      rating: 3,
+      rating: 5,
     },
     {
       id: 3,
       name: "Sarah Smith",
-      image: TestimonialsImg1,
+      image: TestimonialsImg3,
       text: "Outstanding quality and attention to detail. They transformed my office space completely. Will definitely use again!",
       rating: 5,
     },
+    {
+      id: 4,
+      name: "Mike Johnson",
+      image: TestimonialsImg1,
+      text: "Amazing experience! Very professional and reliable cleaning service. Would definitely recommend to friends and family.",
+      rating: 5,
+    },
+    {
+      id: 5,
+      name: "Emma Wilson",
+      image: TestimonialsImg2,
+      text: "Great attention to detail and very friendly staff. My office has never looked better. Thank you Clean Works!",
+      rating: 4,
+    },
   ];
-
-  const NextArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <Button
-        onClick={onClick}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-950 text-white p-2 rounded-full z-20"
-      >
-        <GrNext className="text-white w-6 h-6" />
-      </Button>
-    );
-  };
-
-  const PrevArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <Button
-        onClick={onClick}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2  bg-blue-950 text-white p-2 rounded-full z-20"
-      >
-        <GrPrevious className="text-white w-6 h-6" />
-      </Button>
-    );
-  };
-
-  const testimonialSettings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    centerMode: true,
-    centerPadding: "0px",
-    beforeChange: (current, next) => setCurrentIndex(next),
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          centerMode: true,
-          centerPadding: "100px",
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          centerMode: true,
-          centerPadding: "60px",
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          centerMode: true,
-          centerPadding: "20px",
-        },
-      },
-    ],
-  };
 
   const StarRating = ({ rating }) => {
     return (
@@ -227,11 +181,35 @@ const Home = () => {
   };
 
   const [selectedService, setSelectedService] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
 
   const handleChange = (e) => {
     setSelectedService(e.target.value);
   };
+
+  const handleNextTestimonial = () => {
+    setCurrentTestimonialIndex((prevIndex) =>
+      prevIndex + 3 >= testimonials.length ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevTestimonial = () => {
+    setCurrentTestimonialIndex((prevIndex) =>
+      prevIndex === 0 ? Math.max(0, testimonials.length - 3) : prevIndex - 1
+    );
+  };
+
+  const getVisibleTestimonials = () => {
+    const visible = [];
+    for (let i = 0; i < 3; i++) {
+      const index = (currentTestimonialIndex + i) % testimonials.length;
+      visible.push(testimonials[index]);
+    }
+    return visible;
+  };
+
+  const visibleTestimonials = getVisibleTestimonials();
+  const centerTestimonial = visibleTestimonials[1] || visibleTestimonials[0];
 
   return (
     <>
@@ -433,8 +411,8 @@ const Home = () => {
             pauseOnHover={true}
             speed={50}
             direction="left"
-            gradient={false} // Prevents gradient fade at edges
-            style={{ overflow: "hidden" }} // Ensures content fits within the container
+            gradient={false}
+            style={{ overflow: "hidden" }}
             className="z-10"
           >
             <div className="flex items-center space-x-4">
