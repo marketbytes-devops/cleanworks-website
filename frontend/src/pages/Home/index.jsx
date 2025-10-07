@@ -26,12 +26,18 @@ import HandshakeIcon from "../../Components/Icons/HandshakeIcon";
 import ProfessionIcon from "../../Components/Icons/ProfessionIcon";
 import JanitorialIcon from "../../Components/Icons/JanitorialIcon";
 import TestimonialsImg1 from "../../Components/Icons/TestimonialsImg1.jpg";
-import TestimonialsImg2 from "../../assets/TestimonialsImg2.jpg";
-import TestimonialsImg3 from "../../assets/TestimonialsImg3.jpg";
+import TestimonialsImg2 from "../../Components/Icons/TestimonialsImg2.jpg";
+import TestimonialsImg3 from "../../Components/Icons/TestimonialsImg3.jpg";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import { FaStar, FaQuoteRight } from "react-icons/fa";
 
+import contact from "../../assets/contact.jpg";
 import Form from "../../Components/Form";
+import vid from "../../Components/Icons/vid.png";
+import blog1 from "../../assets/blog1.jpg";
+import blog2 from "../../assets/blog2.jpg";
+import blog3 from "../../assets/blog3.jpg";
+import blog4 from "../../assets/blog4.jpg";
 
 const Home = () => {
   const banner = [
@@ -56,7 +62,7 @@ const Home = () => {
     },
     {
       icon: <img src={CardIcon2} alt="icon" className="mt-3" />,
-      title: "Deep Cleaning Service",
+      title: "Deep Cleaning Services",
       description:
         "Sometimes,a standard cleaning just isn't enough to get your space truly clean and healthy...",
       linkText: "Read More",
@@ -168,6 +174,60 @@ const Home = () => {
     );
   };
 
+  // Blog Component
+  const Blog = ({ image, date, title, description, linkText }) => {
+    return (
+      <div className="bg-white rounded-lg overflow-hidden flex shadow-md">
+        <img src={image} alt={title} className="w-[235px] h-[216px]" />
+        <div className="p-4">
+          <span className="block text-gray-600 text-sm mb-2">{date}</span>
+          <h3 className="text-lg font-semibold mb-2">{title}</h3>
+          <p className="text-gray-600 text-sm mb-2">{description}</p>
+          <a href="#" className="text-blue-600 font-medium hover:underline">
+            {linkText} →
+          </a>
+        </div>
+      </div>
+    );
+  };
+
+  const blogData = [
+    {
+      image: blog1,
+      date: "24 Oct. 2021",
+      title: "Deep Cleaning Services in Qatar",
+      description:
+        "Deep cleaning services in Qatar are designed to provide comprehensive and detailed cleaning for residential and...",
+      linkText: "Learn More",
+    },
+    {
+      image: blog2,
+      date: "24 Oct. 2021",
+      title:
+        "Benefits of frequent Deep Cleaning Services - Clean Works Hospitality",
+      description:
+        "Frequent deep cleaning services offer a wide range of benefits for both...",
+      linkText: "Learn More",
+    },
+    {
+      image: blog3,
+      date: "24 Oct. 2021",
+      title: "Deep Cleaning Services in Qatar",
+      description:
+        "Deep cleaning services in Qatar are designed to provide comprehensive and detailed cleaning for...",
+      linkText: "Learn More",
+    },
+    {
+      image: blog4,
+      date: "24 Oct. 2021",
+      title:
+        "Benefits of frequent Deep Cleaning Services - Clean Works Hospitality",
+      description:
+        "Frequent deep cleaning services offer a wide range of benefits for both...",
+      linkText: "Learn More",
+    },
+  ];
+
   const settings = {
     dots: false,
     fade: true,
@@ -234,12 +294,12 @@ const Home = () => {
                       <span className="bg-[#6EA01E] px-3 py-1 rounded text-base sm:text-xl">
                         Clean Works Cleaning Services
                       </span>
-                      <h1 className="text-sm sm:text-3xl md:text-4xl lg:text-5xl font-semibold mt-2">
+                      <h1 className="text-sm sm:text-3xl md:text-[40px] font-semibold mt-2">
                         BRINGING FRESHNESS TO EVERY CORNER OF QATAR
                       </h1>
                       <Button
-                        className="sm:mt-4 mt-0 px-6 py-2 sm:px-8 sm:py-3 bg-yellow-500
-                                 hover:bg-[#272469] rounded-full flex items-center gap-2"
+                        className="sm:mt-4 mt-0 px-6 py-2 sm:px-8 sm:py-3 bg-yellow-500 hover:bg-[#272469] 
+                                  font-poppins rounded-full flex items-center gap-2"
                       >
                         <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                         Call Us Today
@@ -266,30 +326,34 @@ const Home = () => {
           <div>
             <input
               type="text"
-              placeholder="Name"
-              className="w-full border border-gray-400 outline-none placeholder:text-gray-400 
-                               px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
+              placeholder="Your Name"
+              className="w-full border border-gray-200 outline-none placeholder:text-[#A5A5A5]
+                               px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base font-poppins"
             />
           </div>
           <div>
             <input
               type="email"
               placeholder="Email"
-              className="w-full border border-gray-400 outline-none placeholder:text-gray-400 px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
+              className="w-full border border-gray-200 outline-none placeholder:text-[#A5A5A5] font-poppins 
+                         px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
+              required
             />
           </div>
           <div>
             <input
-              type="tel"
+              type="number"
               placeholder="Phone"
-              className="w-full border border-gray-400 outline-none placeholder:text-gray-400 px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
+              className="w-full border border-gray-200 outline-none placeholder:text-[#A5A5A5] font-poppins 
+                       px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
             />
           </div>
           <div className="relative">
             <select
               value={selectedService}
               onChange={handleChange}
-              className="w-full border border-gray-400 outline-none placeholder:text-gray-400 px-4 py-2 sm:py-3 rounded-full appearance-none text-sm sm:text-base"
+              className="w-full border border-gray-200 outline-none placeholder:text-[#A5A5A5] font-poppins 
+                        px-4 py-2 sm:py-3 rounded-full appearance-none text-sm sm:text-base"
             >
               <option value="">Select Service</option>
               {/* Add more options as needed */}
@@ -307,17 +371,17 @@ const Home = () => {
 
       {/* ServiceSection */}
       <section>
-        <div className="container max-w-[95%] mx-auto px-12 mt-10">
+        <div className="container max-w-[95%] mx-auto px-12 mt-9 sm:mt-2">
           <div className="mb-10">
-            <p className="text-center text-yellow-500 font-semibold text-xl">
+            <p className="text-center text-[#F6B507] font-medium font-poppins text-lg">
               Our Services
             </p>
-            <h2 className="text-black text-4xl font-bold text-center">
+            <h2 className="text-black text-4xl  font-semibold text-center">
               CLEAN WORK SERVICES
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto gap-6 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto gap-6 mt-9">
             {cards.map((card, index) => (
               <Card
                 key={index}
@@ -395,7 +459,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -426,36 +489,126 @@ const Home = () => {
       </section>
 
       {/* TestimonialsSection */}
-      <section className="container max-w-[95%] mx-auto mt-12 px-12 mb-12">
-        
+      <section className="container max-w-[95%] mx-auto mt-12 px-4 sm:px-12 mb-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <Button
+              onClick={handlePrevTestimonial}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-blue-950 text-gray-600 hover:text-white p-3 rounded-full z-20 transition-colors"
+            >
+              <GrPrevious className="w-5 h-5" />
+            </Button>
+
+            <Button
+              onClick={handleNextTestimonial}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-950 hover:bg-blue-900 text-white p-3 rounded-full z-20 transition-colors"
+            >
+              <GrNext className="w-5 h-5" />
+            </Button>
+
+            {/* Images Row */}
+            <div className="flex justify-center items-center mb-8 gap-4">
+              {visibleTestimonials.map((testimonial, index) => (
+                <div
+                  key={testimonial.id}
+                  className={`rounded-full overflow-hidden transition-all duration-300 ${
+                    index === 1 ? "w-24 h-24" : "w-16 h-16"
+                  }`}
+                >
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Center Testimonial Card */}
+            <div className="bg-white rounded-3xl p-8 max-w-3xl mx-auto">
+              {/* Name */}
+              <div className="text-center mb-4">
+                <h3 className="font-semibold text-2xl text-gray-800">
+                  {centerTestimonial.name}
+                </h3>
+              </div>
+
+              {/* Rating Stars */}
+              <StarRating rating={centerTestimonial.rating} />
+
+              {/* Testimonial Text */}
+              <p className="text-gray-600 text-base text-center leading-relaxed mb-6 px-4">
+                {centerTestimonial.text}
+              </p>
+
+              {/* Quote Icon */}
+              <div className="flex justify-center">
+                <div className="flex items-center justify-center">
+                  <FaQuoteRight className="text-[#6EA01E] text-3xl" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* contactSection */}
-      <section className="container mx-auto px-12 max-w-[95%] mt-1">
-
+      <section className="container mx-auto px-12 max-w-[95%]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-3 items-center rounded-3xl shadow-xl ">
-
           {/* Left Column — Contact Form */}
           <div className="w-full max-w-2xl">
             <Form />
           </div>
 
           {/* Right Column — Video */}
-          <div className="w-[430px] h-[440px] mt-6 mx-24 flex justify-center">
-            <video
-              className="rounded-xl shadow-lg w-full h-auto"
-              controls
-              src="/path-to-your-video.mp4"
+          <div className="relative">
+            <img
+              src={contact}
+              className="relative rounded-3xl w-[446px] h-[460px] xl:mx-36 mx-auto mt-10"
             />
+            <div
+              className="absolute bottom-6 left-14 bg-white opacity-95 px-2 py-2 rounded-xl 
+                            shadow-md flex items-center border border-blue-400"
+            >
+              <img src={vid} />
+              <span className="text-sm font-medium font-poppins">
+                Video Presentation
+              </span>
+            </div>
           </div>
-
         </div>
-
       </section>
 
       {/* blogSection */}
-      <section className="container mx-auto px-12 max-w-[95%] mt-12">
-        blog section
+      <section className="container mx-auto px-12 max-w-[95%] mt-20">
+        <div>
+          <div className="mb-10">
+            <p className="text-center text-[#F6B507] font-medium font-poppins text-lg">
+              Our Blog
+            </p>
+            <h5 className="text-black text-4xl  font-semibold text-center">
+              OUR LATEST NEWS
+            </h5>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
+            {blogData.map((blog, index) => (
+              <Blog
+                key={index}
+                image={blog.image}
+                date={blog.date}
+                title={blog.title}
+                description={blog.description}
+                linkText={blog.linkText}
+              />
+            ))}
+          </div>
+          <Button className="bg-[#6EA01E] text-white lg:w-36 w-56 h-12 rounded-3xl mt-5
+                              hover:bg-amber-300 mx-[500px] mb-6">
+            Explore
+          </Button>
+        </div>
       </section>
     </>
   );
