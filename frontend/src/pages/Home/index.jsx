@@ -29,10 +29,7 @@ import TestimonialsImg1 from "../../Components/Icons/TestimonialsImg1.jpg";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import { FaStar, FaQuoteRight } from "react-icons/fa";
 
-import TopBg from "../../Components/Icons/TopBg";
-import RightEdgeBg from "../../Components/Icons/RightEdgeBg";
-import LeftEdgeBg from "../../Components/Icons/LeftEdgeBg";
-import LeftBottom from "../../Components/Icons/LeftBottom";
+import Form from "../../Components/Form";
 
 const Home = () => {
   const banner = [
@@ -420,6 +417,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -446,64 +444,40 @@ const Home = () => {
               <Step icon={JanitorialIcon} text="Get a Best Cleaning Service" />
             </div>
           </Marquee>
-
-          
         </div>
       </section>
 
       {/* TestimonialsSection */}
       <section className="container max-w-[95%] mx-auto mt-12 px-12 mb-12">
-        <div className="relative max-w-4xl mx-auto">
-          <Slider {...testimonialSettings}>
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="px-4">
-                <div
-                  className="bg-white rounded-3xl  p-8 mx-auto max-w-2xl 
-                         transform transition-all duration-300 hover:shadow-xl"
-                >
-                  {/* Client Info */}
-                  <div className="flex flex-col items-center justify-center space-x-4">
-                    <div className="w-16 h-16 rounded-full overflow-hidden">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-xl text-gray-800">
-                        {testimonial.name}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Rating Stars */}
-                  <StarRating rating={testimonial.rating} />
-
-                  {/* Testimonial Text */}
-                  <p
-                    className="text-gray-600 text-lg text-center leading-relaxed mb-6 
-                         line-clamp-6"
-                  >
-                    {testimonial.text}
-                  </p>
-
-                  {/* Quote Icon */}
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 rounded-full flex items-center justify-center">
-                      <FaQuoteRight className="text-[#6EA01E] text-2xl" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
+        
       </section>
 
       {/* contactSection */}
-      <section className="container mx-auto mt-12 px-12 -z-10">
-        contact form
+      <section className="container mx-auto px-12 max-w-[95%] mt-1">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-3 items-center rounded-3xl shadow-xl ">
+
+          {/* Left Column — Contact Form */}
+          <div className="w-full max-w-2xl">
+            <Form />
+          </div>
+
+          {/* Right Column — Video */}
+          <div className="w-[430px] h-[440px] mt-6 mx-24 flex justify-center">
+            <video
+              className="rounded-xl shadow-lg w-full h-auto"
+              controls
+              src="/path-to-your-video.mp4"
+            />
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* blogSection */}
+      <section className="container mx-auto px-12 max-w-[95%] mt-12">
+        blog section
       </section>
     </>
   );
