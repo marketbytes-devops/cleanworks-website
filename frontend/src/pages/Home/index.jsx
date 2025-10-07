@@ -11,13 +11,28 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useState } from "react";
 import Card from "../../Components/Card";
-import CardIcon1 from "../../Components/Icons/CardIcon1.png"
-import CardIcon2 from "../../Components/Icons/CardIcon2.png"
-import CardIcon3 from "../../Components/Icons/CardIcon3.png"
-import CardIcon4 from "../../Components/Icons/CardIcon4.png"
-import CardIcon5 from "../../Components/Icons/CardIcon5.png"
-import CardIcon6 from "../../Components/Icons/CardIcon6.png"
+import CardIcon1 from "../../Components/Icons/CardIcon1.png";
+import CardIcon2 from "../../Components/Icons/CardIcon2.png";
+import CardIcon3 from "../../Components/Icons/CardIcon3.png";
+import CardIcon4 from "../../Components/Icons/CardIcon4.png";
+import CardIcon5 from "../../Components/Icons/CardIcon5.png";
+import CardIcon6 from "../../Components/Icons/CardIcon6.png";
 
+import about from "../../assets/about.jpg";
+import Location from "../../Components/Icons/Location.png";
+import Marquee from "react-fast-marquee";
+import CalendarIcon from "../../Components/Icons/CalendarIcon";
+import HandshakeIcon from "../../Components/Icons/HandshakeIcon";
+import ProfessionIcon from "../../Components/Icons/ProfessionIcon";
+import JanitorialIcon from "../../Components/Icons/JanitorialIcon";
+import TestimonialsImg1 from "../../Components/Icons/TestimonialsImg1.jpg";
+import { GrPrevious, GrNext } from "react-icons/gr";
+import { FaStar, FaQuoteRight } from "react-icons/fa";
+
+import TopBg from "../../Components/Icons/TopBg";
+import RightEdgeBg from "../../Components/Icons/RightEdgeBg";
+import LeftEdgeBg from "../../Components/Icons/LeftEdgeBg";
+import LeftBottom from "../../Components/Icons/LeftBottom";
 
 const Home = () => {
   const banner = [
@@ -30,56 +45,177 @@ const Home = () => {
     },
   ];
 
-   const cards = [
-    { 
-      icon: <img src={CardIcon1} alt="icon" className="mt-4" />, 
-      title: 'Residential Cleaning Service', 
-      description: 'At Clean Works Hospitality, we understand that your home is your sanctuary. Our residential cleaning services are...', 
-      linkText: 'Read More', 
-      linkUrl: '/residential', 
-      className: 'bg-white ' 
+  const cards = [
+    {
+      icon: <img src={CardIcon1} alt="icon" className="mt-4" />,
+      title: "Residential Cleaning Service",
+      description:
+        "At Clean Works Hospitality, we understand that your home is your sanctuary. Our residential cleaning services are...",
+      linkText: "Read More",
+      linkUrl: "/residential",
+      className: "bg-white ",
     },
-     { 
-      icon: <img src={CardIcon2} alt="icon" className="mt-3" />, 
-      title: 'Deep Cleaning Service', 
-      description:"Sometimes,a standard cleaning just isn't enough to get your space truly clean and healthy...", 
-      linkText: 'Read More', 
-      linkUrl: '/residential', 
-      className: 'bg-white ' 
+    {
+      icon: <img src={CardIcon2} alt="icon" className="mt-3" />,
+      title: "Deep Cleaning Service",
+      description:
+        "Sometimes,a standard cleaning just isn't enough to get your space truly clean and healthy...",
+      linkText: "Read More",
+      linkUrl: "/residential",
+      className: "bg-white ",
     },
-     { 
-      icon: <img src={CardIcon3} alt="icon"  />, 
-      title: 'Move in / Out Cleaning', 
-      description: "Moving can be a stressful experience, but with Clean Works Hospitality, you can leave the cleaning to...", 
-      linkText: 'Read More', 
-      linkUrl: '/residential', 
-      className: 'bg-white ' 
+    {
+      icon: <img src={CardIcon3} alt="icon" />,
+      title: "Move in / Out Cleaning",
+      description:
+        "Moving can be a stressful experience, but with Clean Works Hospitality, you can leave the cleaning to...",
+      linkText: "Read More",
+      linkUrl: "/residential",
+      className: "bg-white ",
     },
-     { 
-      icon: <img src={CardIcon4} alt="icon" className="mt-3" />, 
-      title: 'Outdoor Cleaning', 
-      description: 'The exterior of your property is the first impression guests or clients have of your home or business...', 
-      linkText: 'Read More', 
-      linkUrl: '/residential', 
-      className: 'bg-white ' 
+    {
+      icon: <img src={CardIcon4} alt="icon" className="mt-3" />,
+      title: "Outdoor Cleaning",
+      description:
+        "The exterior of your property is the first impression guests or clients have of your home or business...",
+      linkText: "Read More",
+      linkUrl: "/residential",
+      className: "bg-white ",
     },
-     { 
-      icon: <img src={CardIcon5} alt="icon" className="mt-3" />, 
-      title: 'After Party Cleaning', 
-      description: 'Hosting a party or event is a joyous occasion, but the aftermath can be overwhelming...', 
-      linkText: 'Read More', 
-      linkUrl: '/residential', 
-      className: 'bg-white ' 
+    {
+      icon: <img src={CardIcon5} alt="icon" className="mt-3" />,
+      title: "After Party Cleaning",
+      description:
+        "Hosting a party or event is a joyous occasion, but the aftermath can be overwhelming...",
+      linkText: "Read More",
+      linkUrl: "/residential",
+      className: "bg-white ",
     },
-     { 
-      icon: <img src={CardIcon6} alt="icon" className="mt-4" />, 
-      title: 'Water Tank Cleaning', 
-      description: 'Clean water is essential for your health and well-being, and maintaining a clean water tank is..', 
-      linkText: 'Read More', 
-      linkUrl: '/residential', 
-      className: 'bg-white ' 
+    {
+      icon: <img src={CardIcon6} alt="icon" className="mt-4" />,
+      title: "Water Tank Cleaning",
+      description:
+        "Clean water is essential for your health and well-being, and maintaining a clean water tank is..",
+      linkText: "Read More",
+      linkUrl: "/residential",
+      className: "bg-white ",
     },
-  ]
+  ];
+
+  const Step = ({ icon: Icon, text }) => (
+    <div className="flex items-center mx-4">
+      <div className="flex flex-col items-center">
+        <div className="bg-white w-24 h-24 p-6 rounded-full flex-shrink-0">
+          <Icon />
+        </div>
+        <div className="mt-4 text-center">
+          <p className="text-xl font-semibold">{text}</p>
+        </div>
+      </div>
+      <div className="w-36 h-2 rounded-2xl border-t-4 border-white ml-4"></div>
+    </div>
+  );
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Alexa Bliss",
+      image: TestimonialsImg1,
+      text: "Training programs can bring you a super exciting experience of learning through online! You never face any negative experience while enjoying your classes Awesome site, on the top advertising a Courses available available business having..",
+      rating: 5,
+    },
+    {
+      id: 2,
+      name: "John Doe",
+      image: TestimonialsImg1,
+      text: "Excellent service! The cleaning team was professional and thorough. My home has never been cleaner. Highly recommended!",
+      rating: 3,
+    },
+    {
+      id: 3,
+      name: "Sarah Smith",
+      image: TestimonialsImg1,
+      text: "Outstanding quality and attention to detail. They transformed my office space completely. Will definitely use again!",
+      rating: 5,
+    },
+  ];
+
+  const NextArrow = (props) => {
+    const { onClick } = props;
+    return (
+      <Button
+        onClick={onClick}
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-950 text-white p-2 rounded-full z-20"
+      >
+        <GrNext className="text-white w-6 h-6" />
+      </Button>
+    );
+  };
+
+  const PrevArrow = (props) => {
+    const { onClick } = props;
+    return (
+      <Button
+        onClick={onClick}
+        className="absolute left-0 top-1/2 transform -translate-y-1/2  bg-blue-950 text-white p-2 rounded-full z-20"
+      >
+        <GrPrevious className="text-white w-6 h-6" />
+      </Button>
+    );
+  };
+
+  const testimonialSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    centerMode: true,
+    centerPadding: "0px",
+    beforeChange: (current, next) => setCurrentIndex(next),
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          centerMode: true,
+          centerPadding: "100px",
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          centerMode: true,
+          centerPadding: "60px",
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          centerMode: true,
+          centerPadding: "20px",
+        },
+      },
+    ],
+  };
+
+  const StarRating = ({ rating }) => {
+    return (
+      <div className="flex justify-center mb-4">
+        {[...Array(5)].map((_, index) => (
+          <FaStar
+            key={index}
+            className={`w-5 h-5 ${
+              index < rating ? "text-yellow-500" : "text-gray-300"
+            }`}
+          />
+        ))}
+      </div>
+    );
+  };
 
   const settings = {
     dots: false,
@@ -94,6 +230,7 @@ const Home = () => {
   };
 
   const [selectedService, setSelectedService] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleChange = (e) => {
     setSelectedService(e.target.value);
@@ -137,105 +274,236 @@ const Home = () => {
                 </div>
               ))}
             </Slider>
-
-            
-
           </div>
         </div>
       </section>
 
       {/* Centered and Responsive Form */}
-            <div className="relative bottom-[-2rem] sm:bottom-[2rem] md:bottom-[4rem] left-[50%] transform 
+      <div
+        className="relative bottom-[-2rem] sm:bottom-[2rem] md:bottom-[4rem] left-[50%] transform 
                             -translate-x-1/2 w-full max-w-[82%] bg-white shadow-2xl rounded-2xl 
-                            sm:rounded-4xl p-4 sm:p-6">
-              <form
-                action=""
-                className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-center justify-center"
-              >
-                <div>
-                  <input
-                    type="text"
-                    placeholder="Name"
-                    className="w-full border border-gray-400 outline-none placeholder:text-gray-400 
+                            sm:rounded-4xl p-4 sm:p-6"
+      >
+        <form
+          action=""
+          className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-center justify-center"
+        >
+          <div>
+            <input
+              type="text"
+              placeholder="Name"
+              className="w-full border border-gray-400 outline-none placeholder:text-gray-400 
                                px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="w-full border border-gray-400 outline-none placeholder:text-gray-400 px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    placeholder="Phone"
-                    className="w-full border border-gray-400 outline-none placeholder:text-gray-400 px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
-                  />
-                </div>
-                <div className="relative">
-                  <select
-                    value={selectedService}
-                    onChange={handleChange}
-                    className="w-full border border-gray-400 outline-none placeholder:text-gray-400 px-4 py-2 sm:py-3 rounded-full appearance-none text-sm sm:text-base"
-                  >
-                    <option value="">Select Service</option>
-                    {/* Add more options as needed */}
-                  </select>
-                  {/* Custom dropdown arrow */}
-                  <DownArrow className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none" />
-                </div>
-                <div className="flex justify-center">
-                  <Button
-                    className="w-full sm:w-auto bg-[#272469] hover:bg-[#6EA01E] text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full flex items-center justify-center"
-                  >
-                    <SendIcon className="w-5 h-5 sm:w-6 sm:h-6" />
-                  </Button>
-                </div>
-              </form>
-            </div>
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full border border-gray-400 outline-none placeholder:text-gray-400 px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
+            />
+          </div>
+          <div>
+            <input
+              type="tel"
+              placeholder="Phone"
+              className="w-full border border-gray-400 outline-none placeholder:text-gray-400 px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
+            />
+          </div>
+          <div className="relative">
+            <select
+              value={selectedService}
+              onChange={handleChange}
+              className="w-full border border-gray-400 outline-none placeholder:text-gray-400 px-4 py-2 sm:py-3 rounded-full appearance-none text-sm sm:text-base"
+            >
+              <option value="">Select Service</option>
+              {/* Add more options as needed */}
+            </select>
+            {/* Custom dropdown arrow */}
+            <DownArrow className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none" />
+          </div>
+          <div className="flex justify-center">
+            <Button className="w-full sm:w-auto bg-[#272469] hover:bg-[#6EA01E] text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full flex items-center justify-center">
+              <SendIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+            </Button>
+          </div>
+        </form>
+      </div>
 
       {/* ServiceSection */}
       <section>
         <div className="container max-w-[95%] mx-auto px-12 mt-10">
-
           <div className="mb-10">
-            <p className="text-center text-yellow-500 font-semibold text-xl">Our Services</p>
-            <h2 className="text-black text-4xl font-bold text-center">CLEAN WORK SERVICES</h2>
+            <p className="text-center text-yellow-500 font-semibold text-xl">
+              Our Services
+            </p>
+            <h2 className="text-black text-4xl font-bold text-center">
+              CLEAN WORK SERVICES
+            </h2>
           </div>
 
-          
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto gap-6 ">
-        {cards.map((card, index) => (
-          <Card
-            key={index}
-            icon={card.icon}
-            title={card.title}
-            description={card.description}
-            linkText={card.linkText}
-            linkUrl={card.linkUrl}
-            className={card.className}
-          />
-        ))}
-      </div>
-
+            {cards.map((card, index) => (
+              <Card
+                key={index}
+                icon={card.icon}
+                title={card.title}
+                description={card.description}
+                linkText={card.linkText}
+                linkUrl={card.linkUrl}
+                className={card.className}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* AboutSection */}
-      <section>
-        <div className="container max-w-[95%] mx-auto mt-12 px-12">About</div>
+      <section className="container max-w-[95%] mx-auto mt-12 px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="">
+            <p className=" text-yellow-500 font-semibold text-xl">
+              Clean Works Hospitality
+            </p>
+            <h3 className="text-3xl font-bold mt-2">
+              DISCOVER THE ART OF CLEANLINESS
+            </h3>
+            <p className="mt-5 text-[#838B95] text-[18px] ">
+              At Clean Works Hospitality, our journey is guided by a passion for
+              cleanliness and a dedication to our clients. We're not just
+              another cleaning service – we're your partners in creating
+              healthier, happier spaces. Our team of skilled professionals is
+              committed to delivering meticulous cleaning, whether it's a
+              routine home cleaning or an extensive deep cleaning project. We
+              adhere to eco-friendly practices, using safe cleaning solutions
+              that protect your health and the environment.
+            </p>
+            <ul className="mt-4 space-y-3 font-medium">
+              <div className="flex flex-wrap gap-x-8">
+                <li className="flex items-center before:content-['-'] ">
+                  Specialized Expertise
+                </li>
+                <li className="flex items-center before:content-['-'] ">
+                  Environmental Responsibility
+                </li>
+              </div>
+              <div className="flex flex-wrap gap-x-8">
+                <li className="flex items-center before:content-['-'] ">
+                  Quality Assurance
+                </li>
+                <li className="flex items-center before:content-['-'] ml-5">
+                  Customer Satisfaction
+                </li>
+              </div>
+            </ul>
+            <Button
+              className="bg-[#6EA01E] text-white lg:w-36 w-56 h-12 rounded-3xl mt-5
+                              hover:bg-amber-300"
+            >
+              Learn More
+            </Button>
+          </div>
+
+          <div className="relative">
+            <img
+              src={about}
+              className="relative rounded-3xl w-[446px] h-[460px] xl:mx-36 mx-auto mt-10"
+            />
+            <div
+              className="absolute bottom-16 left-28 bg-white opacity-86 px-8 py-3 rounded-xl 
+                            shadow-md flex items-center border border-gray-400"
+            >
+              <img src={Location} />
+              <div className="flex flex-col ml-2">
+                <span>Location</span>
+                <span className="text-[#838B95] text-xs">Doha, Qatar</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* WorkSection */}
-      <section className="w-full  mt-12">
-        <div className="">Work</div>
+      <section className="w-full mx-auto mt-20">
+        <div className="relative max-w-[100%] h-96 mx-auto bg-[#272469] text-white -z-30">
+          <div className="mx-20 py-10">
+            <p className="text-xl">How It Works</p>
+            <h4 className="text-4xl">FOLLOW 4 EASY STEPS</h4>
+          </div>
+
+          <Marquee
+            pauseOnHover={true}
+            speed={50}
+            direction="left"
+            gradient={false} // Prevents gradient fade at edges
+            style={{ overflow: "hidden" }} // Ensures content fits within the container
+            className="z-10"
+          >
+            <div className="flex items-center space-x-4">
+              <Step icon={CalendarIcon} text="Schedule Your Requirements" />
+              <Step icon={ProfessionIcon} text="Schedule Your Requirements" />
+              <Step icon={HandshakeIcon} text="Meet Your Cleaning Expert" />
+              <Step icon={JanitorialIcon} text="Get a Best Cleaning Service" />
+            </div>
+          </Marquee>
+
+          
+        </div>
       </section>
 
       {/* TestimonialsSection */}
-      <section>
-        <div className="container max-w-[95%] mx-auto mt-12 px-12">Testimonials</div>
+      <section className="container max-w-[95%] mx-auto mt-12 px-12 mb-12">
+        <div className="relative max-w-4xl mx-auto">
+          <Slider {...testimonialSettings}>
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="px-4">
+                <div
+                  className="bg-white rounded-3xl  p-8 mx-auto max-w-2xl 
+                         transform transition-all duration-300 hover:shadow-xl"
+                >
+                  {/* Client Info */}
+                  <div className="flex flex-col items-center justify-center space-x-4">
+                    <div className="w-16 h-16 rounded-full overflow-hidden">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-xl text-gray-800">
+                        {testimonial.name}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Rating Stars */}
+                  <StarRating rating={testimonial.rating} />
+
+                  {/* Testimonial Text */}
+                  <p
+                    className="text-gray-600 text-lg text-center leading-relaxed mb-6 
+                         line-clamp-6"
+                  >
+                    {testimonial.text}
+                  </p>
+
+                  {/* Quote Icon */}
+                  <div className="flex justify-center mb-6">
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center">
+                      <FaQuoteRight className="text-[#6EA01E] text-2xl" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </section>
+
+      {/* contactSection */}
+      <section className="container mx-auto mt-12 px-12 -z-10">
+        contact form
       </section>
     </>
   );

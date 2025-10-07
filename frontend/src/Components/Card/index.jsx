@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-const AnimatedCard = ({ icon:Icon, title, description, linkText, desc_className='', className = '', linkUrl = '#'}) => {
+const AnimatedCard = ({ icon:Icon, title, description, linkText, desc_className='',iconBg='', className = '', linkUrl = '#'}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -11,8 +11,8 @@ const AnimatedCard = ({ icon:Icon, title, description, linkText, desc_className=
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={`w-24 h-24 mb-10 transition-transform duration-300 rounded-full bg-[#4977E51A]
-                      ${isHovered ? 'scale-110' : 'scale-100'}`}>
+      <div className={`w-24 h-24 mb-10 transition-transform duration-300 rounded-full ${iconBg} 
+                ${isHovered ? 'scale-110' : 'scale-100'}`}>
                     <div className='flex items-center justify-center'>{Icon}</div>
       </div>
       <p className="text-xl text-black mb-[-5] font-bold">{title}</p>
