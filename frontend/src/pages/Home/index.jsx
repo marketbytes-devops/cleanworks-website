@@ -31,10 +31,7 @@ import TestimonialsImg3 from "../../assets/TestimonialsImg3.jpg";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import { FaStar, FaQuoteRight } from "react-icons/fa";
 
-import TopBg from "../../Components/Icons/TopBg";
-import RightEdgeBg from "../../Components/Icons/RightEdgeBg";
-import LeftEdgeBg from "../../Components/Icons/LeftEdgeBg";
-import LeftBottom from "../../Components/Icons/LeftBottom";
+import Form from "../../Components/Form";
 
 const Home = () => {
   const banner = [
@@ -398,6 +395,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -427,76 +425,37 @@ const Home = () => {
         </div>
       </section>
 
-      {/* TestimonialsSection - UPDATED */}
-      <section className="container max-w-[95%] mx-auto mt-12 px-4 sm:px-12 mb-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="relative">
-            {/* Navigation Arrows */}
-            <Button
-              onClick={handlePrevTestimonial}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-blue-950 text-gray-600 hover:text-white p-3 rounded-full z-20 transition-colors"
-            >
-              <GrPrevious className="w-5 h-5" />
-            </Button>
-
-            <Button
-              onClick={handleNextTestimonial}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-950 hover:bg-blue-900 text-white p-3 rounded-full z-20 transition-colors"
-            >
-              <GrNext className="w-5 h-5" />
-            </Button>
-
-            {/* Images Row */}
-            <div className="flex justify-center items-center mb-8 gap-4">
-              {visibleTestimonials.map((testimonial, index) => (
-                <div
-                  key={testimonial.id}
-                  className={`rounded-full overflow-hidden transition-all duration-300 ${
-                    index === 1
-                      ? "w-24 h-24"
-                      : "w-16 h-16 "
-                  }`}
-                >
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Center Testimonial Card */}
-            <div className="bg-white rounded-3xl  p-8  max-w-3xl mx-auto">
-              {/* Name */}
-              <div className="text-center mb-4">
-                <h3 className="font-semibold text-2xl text-gray-800">
-                  {centerTestimonial.name}
-                </h3>
-              </div>
-
-              {/* Rating Stars */}
-              <StarRating rating={centerTestimonial.rating} />
-
-              {/* Testimonial Text */}
-              <p className="text-gray-600 text-base text-center leading-relaxed mb-6 px-4">
-                {centerTestimonial.text}
-              </p>
-
-              {/* Quote Icon */}
-              <div className="flex justify-center">
-                <div className="flex items-center justify-center">
-                  <FaQuoteRight className="text-[#6EA01E] text-3xl" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* TestimonialsSection */}
+      <section className="container max-w-[95%] mx-auto mt-12 px-12 mb-12">
+        
       </section>
 
       {/* contactSection */}
-      <section className="container mx-auto mt-12 px-12 -z-10">
-        contact form
+      <section className="container mx-auto px-12 max-w-[95%] mt-1">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-3 items-center rounded-3xl shadow-xl ">
+
+          {/* Left Column — Contact Form */}
+          <div className="w-full max-w-2xl">
+            <Form />
+          </div>
+
+          {/* Right Column — Video */}
+          <div className="w-[430px] h-[440px] mt-6 mx-24 flex justify-center">
+            <video
+              className="rounded-xl shadow-lg w-full h-auto"
+              controls
+              src="/path-to-your-video.mp4"
+            />
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* blogSection */}
+      <section className="container mx-auto px-12 max-w-[95%] mt-12">
+        blog section
       </section>
     </>
   );
