@@ -6,7 +6,6 @@ import DownArrow from "../Icons/DownArrow";
 const ContactForm = ({ 
   title = "Contact With Us",
   subtitle = "GET A FREE QUOTE",
-  showLabels = true,
   className = "",
   onSubmit = () => {}
 }) => {
@@ -47,17 +46,17 @@ const ContactForm = ({
   ];
 
   return (
-    <div className={`bg-white rounded-3xl p-6 ${className}`}>
+    <div className={`p-6 ${className}`}>
       {/* Header Section */}
-      <div className="mb-8">
-        <h2 className="text-yellow-500 font-semibold text-xl">{title}</h2>
-        <p className="text-3xl font-bold text-gray-800 mb-2">{subtitle}</p>
+      <div className="mb-5">
+        <p className="text-[#F6B507] font-poppins text-lg">{title}</p>
+        <p className="text-[24px] sm:text-[38px] font-bold text-[#272469] font-dolce ">{subtitle}</p>
       </div>
 
       {/* Form Section */}
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-3 font-poppins">
         {/* Name Field */}
-        <div>
+        <div className="">
           
           <input
             type="text"
@@ -67,7 +66,7 @@ const ContactForm = ({
             onChange={handleChange}
             placeholder="Enter your name"
             className="w-full border border-gray-300 rounded-full px-6 py-3
-                       text-gray-700 placeholder-gray-400 focus:outline-none 
+                       placeholder-[#93949E] focus:outline-none placeholder:text-sm
                        transition-all duration-200"
             required
           />
@@ -84,7 +83,7 @@ const ContactForm = ({
             onChange={handleChange}
             placeholder="Enter your email"
             className="w-full border border-gray-300 rounded-full px-6 py-3 
-                       text-gray-700 placeholder-gray-400 focus:outline-none 
+                       placeholder-[#93949E] focus:outline-none placeholder:text-sm
                        transition-all duration-200"
             required
           />
@@ -100,8 +99,8 @@ const ContactForm = ({
             onChange={handleChange}
             placeholder="Select your residence"
             className="w-full border border-gray-300 rounded-full px-6 py-3
-                       text-gray-700 focus:outline-none appearance-none 
-                       transition-all duration-200"
+                       text-[#93949E] focus:outline-none appearance-none 
+                       transition-all duration-200 text-sm"
             required
           >
             {residenceOptions.map((option, index) => (
@@ -125,9 +124,8 @@ const ContactForm = ({
             rows={3}
             placeholder= "Your Message"
             className="w-full border border-gray-300 rounded-2xl px-6 py-2 
-                       text-gray-700 placeholder-gray-400 focus:outline-none 
-                       focus:border-yellow-500 focus:ring-2 focus:ring-yellow-200 
-                       resize-none transition-all duration-200"
+                       text-gray-700 placeholder-[#93949E] focus:outline-none 
+                        resize-none transition-all duration-200 placeholder:text-sm"
             required
           />
         </div>
@@ -137,9 +135,9 @@ const ContactForm = ({
           <Button
             type="submit"
             className="bg-[#272469] hover:bg-[#6EA01E] text-white w-[100%] h-12
-                       rounded-full text-lg font-semibold transition-all duration-300 
+                       rounded-full text-[18px] transition-all duration-300 
                        transform hover:scale-105 shadow-lg hover:shadow-xl 
-                       flex items-center justify-center mx-auto"
+                       flex items-center justify-center mx-auto font-poppins"
           >
             Submit
           </Button>

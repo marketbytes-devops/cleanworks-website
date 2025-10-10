@@ -1,8 +1,13 @@
-import { Outlet } from 'react-router'
+import { Outlet, useLocation } from 'react-router'
 import Navbar from './Navbar'
-import Footer from './Footer'
+import HomeFooter from './HomeFooter'
+import DefaultFooter from './DefaultFooter'
 
 const Layout = () => {
+
+    const location = useLocation();
+    const isHomePage = location.pathname === '/';
+  
     return (
         <>
             <div className='navbar'>
@@ -12,7 +17,7 @@ const Layout = () => {
                 <Outlet />
             </div>
             <div className='footer'>
-                <Footer />
+                {isHomePage ? <HomeFooter /> : <DefaultFooter />}
             </div>
         </>
     )
