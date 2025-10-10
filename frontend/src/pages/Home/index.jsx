@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import Slider from "react-slick";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "../../Components/Card";
 import CardIcon1 from "../../Components/Icons/CardIcon1.png";
 import CardIcon2 from "../../Components/Icons/CardIcon2.png";
@@ -20,24 +20,37 @@ import CardIcon6 from "../../Components/Icons/CardIcon6.png";
 
 import about from "../../assets/about.jpg";
 import Location from "../../Components/Icons/Location.png";
+import LocationIcon from "../../Components/Icons/LocationIcon";
 import Marquee from "react-fast-marquee";
 import CalendarIcon from "../../Components/Icons/CalendarIcon";
 import HandshakeIcon from "../../Components/Icons/HandshakeIcon";
 import ProfessionIcon from "../../Components/Icons/ProfessionIcon";
 import JanitorialIcon from "../../Components/Icons/JanitorialIcon";
-import TestimonialsImg1 from "../../Components/Icons/TestimonialsImg1.jpg";
-import TestimonialsImg2 from "../../Components/Icons/TestimonialsImg2.jpg";
-import TestimonialsImg3 from "../../Components/Icons/TestimonialsImg3.jpg";
+import TestimonialsImg1 from "../../assets/TestimonialsImg1.jpg";
+import TestimonialsImg2 from "../../assets/TestimonialsImg2.jpg";
+import TestimonialsImg3 from "../../assets/TestimonialsImg3.jpg";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import { FaStar, FaQuoteRight } from "react-icons/fa";
 
 import contact from "../../assets/contact.jpg";
 import Form from "../../Components/Form";
-import vid from "../../Components/Icons/vid.png";
-import blog1 from "../../assets/blog1.jpg";
-import blog2 from "../../assets/blog2.jpg";
-import blog3 from "../../assets/blog3.jpg";
-import blog4 from "../../assets/blog4.jpg";
+import VidIcon from "../../Components/Icons/VidIcon";
+import Blog1 from "../../assets/Blog1.jpg";
+import Blog2 from "../../assets/Blog2.jpg";
+import Blog3 from "../../assets/Blog3.jpg";
+import Blog4 from "../../assets/Blog4.jpg";
+import BlogCalendarIcon from "../../Components/Icons/BlogCalendarIcon";
+import RightArrowIcon from "../../Components/Icons/RightArrowIcon";
+
+import Dropdown from "../../Components/Dropdown";
+import { Link } from "react-router";
+
+import LastIcon1 from "../../Components/Icons/LastIcon1.png";
+import LastIcon2 from "../../Components/Icons/LastIcon2.png";
+import LastIcon3 from "../../Components/Icons/LastIcon3.png";
+import LastIcon4 from "../../Components/Icons/LastIcon4.png";
+import LastIcon5 from "../../Components/Icons/LastIcon5.png";
+import MaskImage from "../../assets/person.png";
 
 const Home = () => {
   const banner = [
@@ -177,15 +190,30 @@ const Home = () => {
   // Blog Component
   const Blog = ({ image, date, title, description, linkText }) => {
     return (
-      <div className="bg-white rounded-lg overflow-hidden flex shadow-md">
-        <img src={image} alt={title} className="w-[235px] h-[216px]" />
-        <div className="p-4">
-          <span className="block text-gray-600 text-sm mb-2">{date}</span>
-          <h3 className="text-lg font-semibold mb-2">{title}</h3>
-          <p className="text-gray-600 text-sm mb-2">{description}</p>
-          <a href="#" className="text-blue-600 font-medium hover:underline">
-            {linkText} →
-          </a>
+      <div className="bg-white rounded-lg overflow-hidden flex flex-col md:flex-row  shadow-md">
+        <img
+          src={image}
+          alt={title}
+          className="w-[235px] h-[216px] rounded-2xl p-2"
+        />
+        <div className="p-2">
+          <p className="text-[20px] font-medium font-poppins text-[#051625] mb-2">
+            {title}
+          </p>
+          <div className="flex items-center gap-2 text-[#747474] font-poppins text-xs mb-2">
+            <BlogCalendarIcon />
+            <span>{date}</span>
+          </div>
+          <p className="text-[#838B95] font-normal text-[15px] font-poppins mb-2">
+            {description}
+          </p>
+          <Link
+            to="#"
+            className="text-[#4977E5] text-[14px] font-semibold font-dm-sans flex items-center gap-1"
+          >
+            {linkText}
+            <RightArrowIcon />
+          </Link>
         </div>
       </div>
     );
@@ -193,35 +221,35 @@ const Home = () => {
 
   const blogData = [
     {
-      image: blog1,
-      date: "24 Oct. 2021",
+      image: Blog1,
       title: "Deep Cleaning Services in Qatar",
+      date: "24 Oct. 2021",
       description:
         "Deep cleaning services in Qatar are designed to provide comprehensive and detailed cleaning for residential and...",
       linkText: "Learn More",
     },
     {
-      image: blog2,
-      date: "24 Oct. 2021",
+      image: Blog2,
       title:
         "Benefits of frequent Deep Cleaning Services - Clean Works Hospitality",
+      date: "24 Oct. 2021",
       description:
         "Frequent deep cleaning services offer a wide range of benefits for both...",
       linkText: "Learn More",
     },
     {
-      image: blog3,
-      date: "24 Oct. 2021",
+      image: Blog3,
       title: "Deep Cleaning Services in Qatar",
+      date: "24 Oct. 2021",
       description:
         "Deep cleaning services in Qatar are designed to provide comprehensive and detailed cleaning for...",
       linkText: "Learn More",
     },
     {
-      image: blog4,
-      date: "24 Oct. 2021",
+      image: Blog4,
       title:
         "Benefits of frequent Deep Cleaning Services - Clean Works Hospitality",
+      date: "24 Oct. 2021",
       description:
         "Frequent deep cleaning services offer a wide range of benefits for both...",
       linkText: "Learn More",
@@ -271,11 +299,57 @@ const Home = () => {
   const visibleTestimonials = getVisibleTestimonials();
   const centerTestimonial = visibleTestimonials[1] || visibleTestimonials[0];
 
+  const [showVideo, setShowVideo] = useState(false);
+
+  const handleVideoClick = () => {
+    setShowVideo(true);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // When user scrolls more than 200px, close the video
+      if (window.scrollY > 200 && showVideo) {
+        setShowVideo(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showVideo]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent page reload
+    // You can collect form values here
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      phone: e.target.phone.value,
+      service: selectedService,
+    };
+    console.log("Form Submitted:", formData);
+    alert(
+      `Thank you ${formData.name}, your request for ${formData.service} is submitted!`
+    );
+
+    // Reset fields
+    e.target.reset(); // resets the input fields
+    setSelectedService(""); // reset the dropdown
+  };
+
+  const services = [
+    "Residential Cleaning Service",
+    "Deep Cleaning Services",
+    "Move in / Out Cleaning",
+    "Outdoor Cleaning",
+    "After Party Cleaning",
+    "Water Tank Cleaning",
+  ];
+
   return (
     <>
       {/* BannerSection */}
       <section className="mt-5">
-        <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-[95%] px-10  lg:px-8">
           <div className="slider-container relative">
             <Slider {...settings}>
               {banner[0].slider.map((slide) => (
@@ -291,18 +365,18 @@ const Home = () => {
                     />
                     {/* Overlay content */}
                     <div className="absolute top-1/4 left-4 sm:left-8 md:left-10 text-white max-w-xl">
-                      <span className="bg-[#6EA01E] px-3 py-1 rounded text-base sm:text-xl">
+                      <span className="bg-[#6EA01E] px-3 py-1 font-poppins text-[12px] sm:text-[18px]">
                         Clean Works Cleaning Services
                       </span>
-                      <h1 className="text-sm sm:text-3xl md:text-[40px] font-dolce mt-2">
-  BRINGING FRESHNESS TO EVERY CORNER OF QATAR
-</h1>
+                      <h1 className="text-sm sm:text-3xl md:text-[45px] font-dolce mt-2">
+                        BRINGING FRESHNESS TO EVERY CORNER OF QATAR
+                      </h1>
 
                       <Button
-                        className="sm:mt-4 mt-0 px-6 py-2 sm:px-8 sm:py-3 bg-yellow-500 hover:bg-[#272469] 
+                        className="lg:mt-4 mt-0 px-2 py-2 md:px-8 md:py-3 bg-yellow-500 hover:bg-[#272469] 
                                   font-poppins rounded-full flex items-center gap-2"
                       >
-                        <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <PhoneIcon className="w-3 h-3 sm:w-5 sm:h-5" />
                         Call Us Today
                       </Button>
                     </div>
@@ -322,11 +396,13 @@ const Home = () => {
       >
         <form
           action=""
+          onSubmit={handleSubmit}
           className="grid grid-cols-1 sm:grid-cols-5 gap-4 items-center justify-center"
         >
           <div>
             <input
               type="text"
+              name="name"
               placeholder="Your Name"
               className="w-full border border-gray-200 outline-none placeholder:text-[#A5A5A5]
                                px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base font-poppins"
@@ -335,8 +411,10 @@ const Home = () => {
           <div>
             <input
               type="email"
-              placeholder="Email"
-              className="w-full border border-gray-200 outline-none placeholder:text-[#A5A5A5] font-poppins 
+              name="email"
+              placeholder="Email Address"
+              className="w-full border border-gray-200 outline-none placeholder:text-[#A5A5A5] 
+                         font-poppins 
                          px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
               required
             />
@@ -344,26 +422,24 @@ const Home = () => {
           <div>
             <input
               type="number"
+              name="phone"
               placeholder="Phone"
               className="w-full border border-gray-200 outline-none placeholder:text-[#A5A5A5] font-poppins 
                        px-4 py-2 sm:py-3 rounded-full text-sm sm:text-base"
             />
           </div>
-          <div className="relative">
-            <select
-              value={selectedService}
-              onChange={handleChange}
-              className="w-full border border-gray-200 outline-none placeholder:text-[#A5A5A5] font-poppins 
-                        px-4 py-2 sm:py-3 rounded-full appearance-none text-sm sm:text-base"
-            >
-              <option value="">Select Service</option>
-              {/* Add more options as needed */}
-            </select>
-            {/* Custom dropdown arrow */}
-            <DownArrow className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none" />
-          </div>
+          <Dropdown
+            options={services}
+            value={selectedService}
+            onChange={(e) => setSelectedService(e.target.value)}
+            placeholder="Select Service"
+            className="placeholder:text-[#A5A5A5]"
+          />
           <div className="flex justify-center">
-            <Button className="w-full sm:w-auto bg-[#272469] hover:bg-[#6EA01E] text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full flex items-center justify-center">
+            <Button
+              type="submit"
+              className="w-full sm:w-auto bg-[#272469] hover:bg-[#6EA01E] text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full flex items-center justify-center"
+            >
               <SendIcon className="w-5 h-5 sm:w-6 sm:h-6" />
             </Button>
           </div>
@@ -377,7 +453,7 @@ const Home = () => {
             <p className="text-center text-[#F6B507] font-medium font-poppins text-lg">
               Our Services
             </p>
-            <h2 className="text-black text-4xl  font-semibold text-center">
+            <h2 className="text-black text-4xl font-dolce font-semibold text-center">
               CLEAN WORK SERVICES
             </h2>
           </div>
@@ -399,16 +475,16 @@ const Home = () => {
       </section>
 
       {/* AboutSection */}
-      <section className="container max-w-[95%] mx-auto mt-12 px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2">
+      <section className="container max-w-[95%] mx-auto mt-20 px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 ">
           <div className="">
-            <p className=" text-yellow-500 font-semibold text-xl">
+            <p className=" text-[#F6B507] font-poppins  text-xl">
               Clean Works Hospitality
             </p>
-            <h3 className="text-3xl font-bold mt-2">
+            <h3 className="text-[36px] font-bold font-dolce font-dolce ">
               DISCOVER THE ART OF CLEANLINESS
             </h3>
-            <p className="mt-5 text-[#838B95] text-[18px] ">
+            <p className=" text-[#838B95] font-lato text-[16px] ">
               At Clean Works Hospitality, our journey is guided by a passion for
               cleanliness and a dedication to our clients. We're not just
               another cleaning service – we're your partners in creating
@@ -418,7 +494,7 @@ const Home = () => {
               adhere to eco-friendly practices, using safe cleaning solutions
               that protect your health and the environment.
             </p>
-            <ul className="mt-4 space-y-3 font-medium">
+            <ul className="mt-4 space-y-3 text-[16px] font-medium font-dm-sans text-[#051625]">
               <div className="flex flex-wrap gap-x-8">
                 <li className="flex items-center before:content-['-'] ">
                   Specialized Expertise
@@ -437,8 +513,8 @@ const Home = () => {
               </div>
             </ul>
             <Button
-              className="bg-[#6EA01E] text-white lg:w-36 w-56 h-12 rounded-3xl mt-5
-                              hover:bg-amber-300"
+              className="bg-[#6EA01E] text-white lg:w-32 w-56 h-12 rounded-3xl mt-5
+                              hover:bg-amber-300 font-dm-sans text-[15px]"
             >
               Learn More
             </Button>
@@ -447,16 +523,21 @@ const Home = () => {
           <div className="relative">
             <img
               src={about}
-              className="relative rounded-3xl w-[446px] h-[460px] xl:mx-36 mx-auto mt-10"
+              className="relative rounded-3xl w-full max-w-[446px] h-auto md:h-[460px] object-cover
+                        xl:mx-36  mx-auto mt-10"
             />
             <div
               className="absolute bottom-16 left-28 bg-white opacity-86 px-8 py-3 rounded-xl 
                             shadow-md flex items-center border border-gray-400"
             >
               <img src={Location} />
-              <div className="flex flex-col ml-2">
-                <span>Location</span>
-                <span className="text-[#838B95] text-xs">Doha, Qatar</span>
+              <div className="flex flex-col">
+                <span className="text-[#051625] font-dm-sans text-[19px] font-bold">
+                  Location
+                </span>
+                <span className="text-[#838B95] text-xs font-lato">
+                  Doha, Qatar
+                </span>
               </div>
             </div>
           </div>
@@ -465,10 +546,10 @@ const Home = () => {
 
       {/* WorkSection */}
       <section className="w-full mx-auto mt-20">
-        <div className="relative max-w-[100%] h-96 mx-auto bg-[#272469] text-white -z-30">
+        <div className="relative max-w-[100%] h-96 mx-auto bg-[#272469] text-white">
           <div className="mx-20 py-10">
-            <p className="text-xl">How It Works</p>
-            <h4 className="text-4xl">FOLLOW 4 EASY STEPS</h4>
+            <p className="text-xl font-poppins">How It Works</p>
+            <h4 className="text-4xl font-dolce">FOLLOW 4 EASY STEPS</h4>
           </div>
 
           <Marquee
@@ -477,7 +558,7 @@ const Home = () => {
             direction="left"
             gradient={false}
             style={{ overflow: "hidden" }}
-            className="z-10"
+            className="z-10 "
           >
             <div className="flex items-center space-x-4">
               <Step icon={CalendarIcon} text="Schedule Your Requirements" />
@@ -491,59 +572,52 @@ const Home = () => {
 
       {/* TestimonialsSection */}
       <section className="container max-w-[95%] mx-auto mt-12 px-4 sm:px-12 mb-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="relative">
+        <div className="max-w-5xl mx-auto">
+          {/* Images Row */}
+          <div className="flex justify-center items-center mb-8 gap-4">
+            {visibleTestimonials.map((testimonial, index) => (
+              <div
+                key={testimonial.id}
+                className={`rounded-full overflow-hidden transition-all duration-300 ${
+                  index === 1 ? "w-24 h-24" : "w-16 h-16"
+                }`}
+              >
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Relative Container for Card and Arrows */}
+          <div className="relative max-w-3xl mx-auto">
             {/* Navigation Arrows */}
             <Button
               onClick={handlePrevTestimonial}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-blue-950 text-gray-600 hover:text-white p-3 rounded-full z-20 transition-colors"
+              className="absolute left-[-50px] top-1/2 transform -translate-y-1/2  bg-gray-200 hover:bg-blue-950 text-gray-600 hover:text-white p-3 rounded-full z-20 transition-colors"
             >
               <GrPrevious className="w-5 h-5" />
             </Button>
-
             <Button
               onClick={handleNextTestimonial}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-950 hover:bg-blue-900 text-white p-3 rounded-full z-20 transition-colors"
+              className="absolute right-[-50px] top-1/2 transform -translate-y-1/2  bg-blue-950 hover:bg-blue-900 text-white p-3 rounded-full z-20 transition-colors"
             >
               <GrNext className="w-5 h-5" />
             </Button>
 
-            {/* Images Row */}
-            <div className="flex justify-center items-center mb-8 gap-4">
-              {visibleTestimonials.map((testimonial, index) => (
-                <div
-                  key={testimonial.id}
-                  className={`rounded-full overflow-hidden transition-all duration-300 ${
-                    index === 1 ? "w-24 h-24" : "w-16 h-16"
-                  }`}
-                >
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-
             {/* Center Testimonial Card */}
-            <div className="bg-white rounded-3xl p-8 max-w-3xl mx-auto">
-              {/* Name */}
+            <div className="bg-white rounded-3xl p-8 w-full">
               <div className="text-center mb-4">
                 <h3 className="font-semibold text-2xl text-gray-800">
                   {centerTestimonial.name}
                 </h3>
               </div>
-
-              {/* Rating Stars */}
               <StarRating rating={centerTestimonial.rating} />
-
-              {/* Testimonial Text */}
               <p className="text-gray-600 text-base text-center leading-relaxed mb-6 px-4">
                 {centerTestimonial.text}
               </p>
-
-              {/* Quote Icon */}
               <div className="flex justify-center">
                 <div className="flex items-center justify-center">
                   <FaQuoteRight className="text-[#6EA01E] text-3xl" />
@@ -555,28 +629,54 @@ const Home = () => {
       </section>
 
       {/* contactSection */}
-      <section className="container mx-auto px-12 max-w-[95%]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-3 items-center rounded-3xl shadow-xl ">
+      <section className="container mx-auto px-12  max-w-[95%]">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:px-6 md:px-12 
+                      items-center rounded-3xl shadow-xl "
+        >
           {/* Left Column — Contact Form */}
-          <div className="w-full max-w-2xl">
+          <div className="w-full  lg:p-2 p-10 md:p-18 lg:mb-12  mb-0">
             <Form />
           </div>
 
           {/* Right Column — Video */}
-          <div className="relative">
-            <img
-              src={contact}
-              className="relative rounded-3xl w-[446px] h-[460px] xl:mx-36 mx-auto mt-10"
-            />
-            <div
-              className="absolute bottom-6 left-14 bg-white opacity-95 px-2 py-2 rounded-xl 
-                            shadow-md flex items-center border border-blue-400"
-            >
-              <img src={vid} />
-              <span className="text-sm font-medium font-poppins">
-                Video Presentation
-              </span>
-            </div>
+          <div className="relative -mt-12 lg:mt-0">
+            {!showVideo ? (
+              <>
+                <img
+                  src={contact}
+                  className="relative rounded-3xl w-full max-w-[420px]  object-cover h-auto md:h-[460px] 
+                           lg:mt-4 mt-0 xl:mx-28 lg:mx-10 mx-auto mb-6 lg:mb-0"
+                  alt="Video thumbnail"
+                />
+                <div
+                  onClick={handleVideoClick}
+                  className="absolute bottom-6 left-7 bg-white opacity-95 px-2 py-1 rounded-xl 
+                            shadow-md flex items-center border border-blue-400 cursor-pointer 
+                            hover:scale-105 transition-transform"
+                >
+                  <VidIcon />
+                  <span className="text-sm font-medium font-poppins">
+                    Video Presentation
+                  </span>
+                </div>
+              </>
+            ) : (
+              <div
+                className="relative rounded-3xl overflow-hidden w-full max-w-[420px] h-auto md:h-[460px]
+                            mt-4 md:mx-28  mx-auto"
+              >
+                {/* Replace with your YouTube embed or local video */}
+                <iframe
+                  className="w-full h-full rounded-3xl"
+                  src="https://www.youtube.com/embed/NfnQ8gQlOIA?autoplay=1"
+                  title="Video Presentation"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                       gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -585,15 +685,15 @@ const Home = () => {
       <section className="container mx-auto px-12 max-w-[95%] mt-20">
         <div>
           <div className="mb-10">
-            <p className="text-center text-[#F6B507] font-medium font-poppins text-lg">
+            <p className="text-center text-[#F6B507] font-medium font-poppins text-[17px]">
               Our Blog
             </p>
-            <h5 className="text-black text-4xl  font-semibold text-center">
+            <h5 className="text-[#051625] text-[40px] font-dolce font-semibold text-center">
               OUR LATEST NEWS
             </h5>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-5">
             {blogData.map((blog, index) => (
               <Blog
                 key={index}
@@ -605,12 +705,170 @@ const Home = () => {
               />
             ))}
           </div>
-          <Button className="bg-[#6EA01E] text-white lg:w-36 w-56 h-12 rounded-3xl mt-5
-                              hover:bg-amber-300 mx-[500px] mb-6">
-            Explore
-          </Button>
+
+          <div className="flex justify-center mt-9">
+            <Button
+              className="bg-[#6EA01E] text-white lg:w-36 w-56 h-12 rounded-3xl
+                    hover:bg-amber-300 font-dm-sans text-[15px] "
+            >
+              Explore More
+            </Button>
+          </div>
         </div>
       </section>
+
+      {/* ChooseUs section */}
+      <section className="container mx-auto px-12 max-w-[95%] mt-24 relative z-10 -mb-20">
+        <div className="w-full">
+          <div className="relative w-full bg-[#272469] h-auto lg:h-[300px] rounded-2xl overflow-visible">
+            {/* FIXED: overflow-visible to allow image protrusion without clipping */}
+
+            {/* Main Content Section */}
+            <div className="relative z-10 p-6 lg:p-8 w-full lg:w-[65%]">
+              <p className="text-[18px] text-[#F6B507] font-poppins">
+                Why You Should Choose Us
+              </p>
+              <h6 className="text-[30px] lg:text-[40px] font-dolce text-white mb-4 lg:mb-6">
+                REASONS TO CHOOSE US
+              </h6>
+
+              {/* Icons Row - White rounded boxes for icons only (original height/width preserved) */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-4 lg:mt-6">
+
+                <div className="flex flex-col">
+                <div className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
+                              justify-center text-center shadow-lg min-h-[100px] lg:h-[100px]
+                              max-w-[80px] lg:max-w-[100px]">
+                  <img
+                    src={LastIcon1}
+                    alt="Qualified Experts"
+                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                  />
+                </div>
+
+                 <div className="text-center -ml-5 mt-2">
+                  <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                    Qualified
+                    <br />
+                    Experts
+                  </p>
+                </div>
+                </div>
+
+                <div className="flex flex-col">
+                <div className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
+                               justify-center text-center shadow-lg min-h-[100px] lg:h-[100px]
+                              max-w-[80px] lg:max-w-[100px]">
+                  <img
+                    src={LastIcon2}
+                    alt="Service on Schedule"
+                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                  />
+                </div>
+
+                 <div className="text-center -ml-5 mt-2">
+                  <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                    Service on
+                    <br />
+                    Schedule
+                  </p>
+                </div>
+                </div>
+
+                <div className="flex flex-col">
+                <div className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center justify-center
+                                text-center shadow-lg min-h-[100px] lg:h-[100px]
+                                max-w-[80px] lg:max-w-[100px]">
+                  <img
+                    src={LastIcon3}
+                    alt="Affordable Prices"
+                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                  />
+                </div>
+
+                <div className="text-center -ml-5 mt-2">
+                  <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                    Affordable
+                    <br />
+                    Prices
+                  </p>
+                </div>
+                </div>
+
+                <div className="flex flex-col">
+                <div className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
+                               justify-center text-center shadow-lg min-h-[100px] lg:h-[100px]
+                              max-w-[80px] lg:max-w-[100px]">
+                  <img
+                    src={LastIcon4}
+                    alt="Reliable Service"
+                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                  />
+                </div>
+
+                <div className="text-center -ml-5 mt-2">
+                  <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                    Reliable
+                    <br />
+                    Service
+                  </p>
+                </div>
+                </div>
+
+                <div className="flex flex-col">
+                <div className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
+                               justify-center text-center shadow-lg min-h-[100px] lg:h-[100px]
+                               max-w-[80px] lg:max-w-[100px]">
+                  <img
+                    src={LastIcon5}
+                    alt="Special Offers"
+                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                  />
+                </div>
+
+                 <div className="text-center -ml-5 mt-2">
+                  <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                    Special
+                    <br />
+                    Offers
+                  </p>
+                </div>
+                </div>
+
+              </div>
+              
+            </div>
+
+            {/* Yellow Diagonal Section with Image - Hidden on mobile */}
+            <div className="hidden lg:block absolute top-0 right-0 w-[35%] h-full overflow-visible ">
+              {" "}
+              {/* FIXED: overflow-visible on image container too */}
+              {/* Yellow Background */}
+              <div
+                className="absolute top-0 right-0 w-full h-full bg-[#F6B507] z-0 rounded-2xl"
+                style={{
+                  clipPath: "polygon(30% 0, 100% 0, 100% 100%, 0% 110%)",
+                }} // FIXED: Adjusted clip to 100% for full bottom coverage
+              />
+              {/* Full Mask Image - Less extreme positioning for visibility */}
+              <div
+                className="absolute right-0 w-full h-[160%] z-50 -top-[60%]" // FIXED: Reduced negative top/h to show half head out without over-clipping
+              >
+                <img
+                  src={MaskImage}
+                  alt="Cleaning Expert"
+                  className="w-full h-full object-cover object-top"
+                  style={{
+                    clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0% 100%)",
+                    filter: "brightness(1.1) contrast(1.05)",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </>
   );
 };

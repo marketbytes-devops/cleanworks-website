@@ -7,7 +7,7 @@ const TopBg = (className) => {
       width="57"
       height="57"
       viewBox="0 0 57 57"
-      fill="none"
+      fill="#fff"
       xmlns="http://www.w3.org/2000/svg"
     >
       <g style={{ mixBlendMode: 'lighten' }} opacity="0.15">
