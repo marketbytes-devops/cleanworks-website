@@ -52,6 +52,11 @@ import LastIcon4 from "../../Components/Icons/LastIcon4.png";
 import LastIcon5 from "../../Components/Icons/LastIcon5.png";
 import MaskImage from "../../assets/person.png";
 
+import LeftEdgeBg from "../../Components/Icons/LeftEdgeBg";
+import RightEdgeBg from "../../Components/Icons/RightEdgeBg";
+import LeftBottom from "../../Components/Icons/LeftBottom";
+import TopBg from "../../Components/Icons/TopBg";
+
 const Home = () => {
   const banner = [
     {
@@ -475,69 +480,74 @@ const Home = () => {
       </section>
 
       {/* AboutSection */}
-      <section className="container max-w-[95%] mx-auto mt-20 px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 ">
-          <div className="">
-            <p className=" text-[#F6B507] font-poppins  text-xl">
+      <section className="container w-full max-w-[95%] mx-auto mt-20 px-12">
+        <div className="flex flex-col lg:flex-row gap-x-4 w-full">
+          {/* Text Content */}
+          <div className="lg:w-[60%] w-full">
+            <p className="text-[#F6B507] font-poppins text-xl">
               Clean Works Hospitality
             </p>
-            <h3 className="text-[36px] font-bold font-dolce font-dolce ">
+            <h3 className="text-[36px] font-bold font-dolce">
               DISCOVER THE ART OF CLEANLINESS
             </h3>
-            <p className=" text-[#838B95] font-lato text-[16px] ">
+            <p className="text-[#838B95] font-lato text-[17px] text-light">
               At Clean Works Hospitality, our journey is guided by a passion for
               cleanliness and a dedication to our clients. We're not just
               another cleaning service – we're your partners in creating
               healthier, happier spaces. Our team of skilled professionals is
               committed to delivering meticulous cleaning, whether it's a
-              routine home cleaning or an extensive deep cleaning project. We
+              routine home cleaning or an extensive deep cleaning project.We
               adhere to eco-friendly practices, using safe cleaning solutions
               that protect your health and the environment.
             </p>
             <ul className="mt-4 space-y-3 text-[16px] font-medium font-dm-sans text-[#051625]">
               <div className="flex flex-wrap gap-x-8">
-                <li className="flex items-center before:content-['-'] ">
+                <li className="flex items-center before:content-['-']">
                   Specialized Expertise
                 </li>
-                <li className="flex items-center before:content-['-'] ">
+                <li className="flex items-center before:content-['-']">
                   Environmental Responsibility
                 </li>
               </div>
               <div className="flex flex-wrap gap-x-8">
-                <li className="flex items-center before:content-['-'] ">
+                <li className="flex items-center before:content-['-']">
                   Quality Assurance
                 </li>
-                <li className="flex items-center before:content-['-'] ml-5">
+                <li className="flex items-center before:content-['-'] ml-0 lg:ml-4">
                   Customer Satisfaction
                 </li>
               </div>
             </ul>
             <Button
               className="bg-[#6EA01E] text-white lg:w-32 w-56 h-12 rounded-3xl mt-5
-                              hover:bg-amber-300 font-dm-sans text-[15px]"
+          hover:bg-amber-300 font-dm-sans text-[15px]"
             >
               Learn More
             </Button>
           </div>
 
-          <div className="relative">
-            <img
-              src={about}
-              className="relative rounded-3xl w-full max-w-[446px] h-auto md:h-[460px] object-cover
-                        xl:mx-36  mx-auto mt-10"
-            />
-            <div
-              className="absolute bottom-16 left-28 bg-white opacity-86 px-8 py-3 rounded-xl 
-                            shadow-md flex items-center border border-gray-400"
-            >
-              <img src={Location} />
-              <div className="flex flex-col">
-                <span className="text-[#051625] font-dm-sans text-[19px] font-bold">
-                  Location
-                </span>
-                <span className="text-[#838B95] text-xs font-lato">
-                  Doha, Qatar
-                </span>
+          {/* Image Container */}
+          <div className="lg:w-[40%] w-full flex lg:justify-end justify-start">
+            <div className="relative">
+              <img
+                src={about}
+                className="rounded-3xl w-full lg:max-w-none max-w-[446px] h-auto lg:mt-8 mt-4 
+                    lg:h-[calc(100vh-200px)]  object-cover"
+              />
+              <div
+                className="absolute bottom-0 lg:bottom-16 -left-12 bg-white opacity-86 
+                          lg:px-8 px-5 py-2 lg:py-3 rounded-xl shadow-md 
+                         flex items-center border border-gray-400"
+              >
+                <img src={Location} />
+                <div className="flex flex-col">
+                  <span className="text-[#051625] font-dm-sans text-[15px] lg:text-[19px] font-bold">
+                    Location
+                  </span>
+                  <span className="text-[#838B95] text-xs font-lato">
+                    Doha, Qatar
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -546,10 +556,17 @@ const Home = () => {
 
       {/* WorkSection */}
       <section className="w-full mx-auto mt-20">
-        <div className="relative max-w-[100%] h-96 mx-auto bg-[#272469] text-white">
+        <div className="relative max-w-[100%] h-96 mx-auto bg-[#272469] text-white ">
           <div className="mx-20 py-10">
             <p className="text-xl font-poppins">How It Works</p>
             <h4 className="text-4xl font-dolce">FOLLOW 4 EASY STEPS</h4>
+          </div>
+
+          <div className="absolute inset-0 z-0">
+            <RightEdgeBg className="absolute md:right-0 -right-12 -top-18 md:-top-12 " />
+            <TopBg className="absolute left-18 ml-18 md:left-28 sm:left-28 sm:ml-40 md:ml-72 -top-7" />
+            <LeftBottom className="absolute -bottom-7 ml-12" />
+            <LeftEdgeBg className="absolute md:left-0 -left-12 -top-10 md:-top-6" />
           </div>
 
           <Marquee
@@ -558,7 +575,7 @@ const Home = () => {
             direction="left"
             gradient={false}
             style={{ overflow: "hidden" }}
-            className="z-10 "
+            className="z-10  "
           >
             <div className="flex items-center space-x-4">
               <Step icon={CalendarIcon} text="Schedule Your Requirements" />
@@ -571,22 +588,26 @@ const Home = () => {
       </section>
 
       {/* TestimonialsSection */}
-      <section className="container max-w-[95%] mx-auto mt-12 px-4 sm:px-12 mb-12">
+      <section className="container max-w-[95%] mx-auto mt-18 px-4 sm:px-12 mb-12">
         <div className="max-w-5xl mx-auto">
           {/* Images Row */}
-          <div className="flex justify-center items-center mb-8 gap-4">
+          <div className="flex justify-center items-center  gap-4">
             {visibleTestimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className={`rounded-full overflow-hidden transition-all duration-300 ${
-                  index === 1 ? "w-24 h-24" : "w-16 h-16"
-                }`}
+                className="w-12 h-12 flex items-center justify-center"
               >
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-full h-full object-cover"
-                />
+                <div
+                  className={`rounded-full overflow-hidden transition-transform duration-300 ${
+                    index === 1 ? "scale-110 shadow-lg" : "scale-90 opacity-70"
+                  }`}
+                >
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    className="w-12 h-12 object-cover rounded-full"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -596,28 +617,32 @@ const Home = () => {
             {/* Navigation Arrows */}
             <Button
               onClick={handlePrevTestimonial}
-              className="absolute left-[-50px] top-1/2 transform -translate-y-1/2  bg-gray-200 hover:bg-blue-950 text-gray-600 hover:text-white p-3 rounded-full z-20 transition-colors"
+              className="absolute left-[-25px] lg:left-[-50px] top-1/2 transform -translate-y-1/2 
+                        bg-gray-200 hover:bg-blue-950 text-gray-600 hover:text-white p-3 
+                           rounded-full z-20 transition-colors"
             >
               <GrPrevious className="w-5 h-5" />
             </Button>
             <Button
               onClick={handleNextTestimonial}
-              className="absolute right-[-50px] top-1/2 transform -translate-y-1/2  bg-blue-950 hover:bg-blue-900 text-white p-3 rounded-full z-20 transition-colors"
+              className="absolute right-[-25px] lg:right-[-50px] top-1/2 transform -translate-y-1/2  bg-blue-950 
+                         hover:bg-blue-900 text-white p-3 rounded-full z-20 transition-colors"
             >
               <GrNext className="w-5 h-5" />
             </Button>
 
             {/* Center Testimonial Card */}
             <div className="bg-white rounded-3xl p-8 w-full">
-              <div className="text-center mb-4">
-                <h3 className="font-semibold text-2xl text-gray-800">
+              <div className="text-center mb-2">
+                <h3 className="font-semibold text-xl text-gray-800">
                   {centerTestimonial.name}
                 </h3>
               </div>
               <StarRating rating={centerTestimonial.rating} />
-              <p className="text-gray-600 text-base text-center leading-relaxed mb-6 px-4">
+              <p className="text-gray-600 text-sm text-center leading-snug mb-4 px-2">
                 {centerTestimonial.text}
               </p>
+
               <div className="flex justify-center">
                 <div className="flex items-center justify-center">
                   <FaQuoteRight className="text-[#6EA01E] text-3xl" />
@@ -629,31 +654,31 @@ const Home = () => {
       </section>
 
       {/* contactSection */}
-      <section className="container mx-auto px-12  max-w-[95%]">
+      <section className="container mx-auto px-12 max-w-[95%]">
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:px-6 md:px-12 
-                      items-center rounded-3xl shadow-xl "
+          className="flex flex-col lg:flex-row w-full gap-8  items-center rounded-3xl 
+                  shadow-xl"
         >
           {/* Left Column — Contact Form */}
-          <div className="w-full  lg:p-2 p-10 md:p-18 lg:mb-12  mb-0">
+          <div className="lg:w-[55%] w-full p-5 lg:mb-12 mb-0">
             <Form />
           </div>
 
           {/* Right Column — Video */}
-          <div className="relative -mt-12 lg:mt-0">
+          <div className="lg:w-[45%] w-full relative -mt-12 lg:mt-0">
             {!showVideo ? (
               <>
                 <img
                   src={contact}
-                  className="relative rounded-3xl w-full max-w-[420px]  object-cover h-auto md:h-[460px] 
-                           lg:mt-4 mt-0 xl:mx-28 lg:mx-10 mx-auto mb-6 lg:mb-0"
+                  className="relative rounded-3xl w-full max-w-[420px] object-cover h-auto md:h-[460px] 
+                     lg:mt-4 mt-0  mx-auto mb-6 lg:mb-0"
                   alt="Video thumbnail"
                 />
                 <div
                   onClick={handleVideoClick}
-                  className="absolute bottom-6 left-7 bg-white opacity-95 px-2 py-1 rounded-xl 
-                            shadow-md flex items-center border border-blue-400 cursor-pointer 
-                            hover:scale-105 transition-transform"
+                  className="absolute bottom-5 left-0 lg:-left-7 2xl:left-60 bg-white opacity-95 p-2 rounded-xl 
+                      shadow-md flex items-center border border-blue-400 cursor-pointer 
+                      hover:scale-105 transition-transform"
                 >
                   <VidIcon />
                   <span className="text-sm font-medium font-poppins">
@@ -664,7 +689,7 @@ const Home = () => {
             ) : (
               <div
                 className="relative rounded-3xl overflow-hidden w-full max-w-[420px] h-auto md:h-[460px]
-                            mt-4 md:mx-28  mx-auto"
+                    mt-4 md:mx-28 mx-auto"
               >
                 {/* Replace with your YouTube embed or local video */}
                 <iframe
@@ -672,7 +697,7 @@ const Home = () => {
                   src="https://www.youtube.com/embed/NfnQ8gQlOIA?autoplay=1"
                   title="Video Presentation"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-                       gyroscope; picture-in-picture"
+                 gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
               </div>
@@ -720,123 +745,129 @@ const Home = () => {
       {/* ChooseUs section */}
       <section className="container mx-auto px-12 max-w-[95%] mt-24 relative z-10 -mb-20">
         <div className="w-full">
-          <div className="relative w-full bg-[#272469] h-auto lg:h-[300px] rounded-2xl overflow-visible">
+          <div className="relative w-full bg-[#272469] h-auto lg:h-[300px] 2xl:h-[500px] rounded-2xl overflow-visible">
             {/* FIXED: overflow-visible to allow image protrusion without clipping */}
 
             {/* Main Content Section */}
-            <div className="relative z-10 p-6 lg:p-8 w-full lg:w-[65%]">
-              <p className="text-[18px] text-[#F6B507] font-poppins">
+            <div className="relative z-10 p-6  w-full lg:w-[70%]">
+              <p className="text-[18px] text-[#F6B507] font-poppins px-4">
                 Why You Should Choose Us
               </p>
-              <h6 className="text-[30px] lg:text-[40px] font-dolce text-white mb-4 lg:mb-6">
+              <h6 className="text-[30px] lg:text-[40px] font-dolce text-white mb-3 px-4">
                 REASONS TO CHOOSE US
               </h6>
 
-              {/* Icons Row - White rounded boxes for icons only (original height/width preserved) */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-4 lg:mt-6">
-
-                <div className="flex flex-col">
-                <div className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
+              <div className="grid grid-cols-5 gap-10 2xl:mt-18 mt-0">
+                <div className="flex flex-col items-center ">
+                  <div
+                    className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
                               justify-center text-center shadow-lg min-h-[100px] lg:h-[100px]
-                              max-w-[80px] lg:max-w-[100px]">
-                  <img
-                    src={LastIcon1}
-                    alt="Qualified Experts"
-                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
-                  />
+                              max-w-[80px] lg:max-w-[100px]"
+                  >
+                    <img
+                      src={LastIcon1}
+                      alt="Qualified Experts"
+                      className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                    />
+                  </div>
+
+                  <div className="text-center mt-2">
+                    <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                      Qualified
+                      <br />
+                      Experts
+                    </p>
+                  </div>
                 </div>
 
-                 <div className="text-center -ml-5 mt-2">
-                  <p className="text-[17px] font-poppins font-normal text-white leading-tight">
-                    Qualified
-                    <br />
-                    Experts
-                  </p>
-                </div>
-                </div>
-
-                <div className="flex flex-col">
-                <div className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
+                <div className="flex flex-col items-center">
+                  <div
+                    className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
                                justify-center text-center shadow-lg min-h-[100px] lg:h-[100px]
-                              max-w-[80px] lg:max-w-[100px]">
-                  <img
-                    src={LastIcon2}
-                    alt="Service on Schedule"
-                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
-                  />
+                              max-w-[80px] lg:max-w-[100px]"
+                  >
+                    <img
+                      src={LastIcon2}
+                      alt="Service on Schedule"
+                      className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                    />
+                  </div>
+
+                  <div className="text-center mt-2">
+                    <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                      Service on
+                      <br />
+                      Schedule
+                    </p>
+                  </div>
                 </div>
 
-                 <div className="text-center -ml-5 mt-2">
-                  <p className="text-[17px] font-poppins font-normal text-white leading-tight">
-                    Service on
-                    <br />
-                    Schedule
-                  </p>
-                </div>
-                </div>
-
-                <div className="flex flex-col">
-                <div className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center justify-center
+                <div className="flex flex-col items-center">
+                  <div
+                    className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center justify-center
                                 text-center shadow-lg min-h-[100px] lg:h-[100px]
-                                max-w-[80px] lg:max-w-[100px]">
-                  <img
-                    src={LastIcon3}
-                    alt="Affordable Prices"
-                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
-                  />
+                                max-w-[80px] lg:max-w-[100px]"
+                  >
+                    <img
+                      src={LastIcon3}
+                      alt="Affordable Prices"
+                      className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                    />
+                  </div>
+
+                  <div className="text-center mt-2">
+                    <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                      Affordable
+                      <br />
+                      Prices
+                    </p>
+                  </div>
                 </div>
 
-                <div className="text-center -ml-5 mt-2">
-                  <p className="text-[17px] font-poppins font-normal text-white leading-tight">
-                    Affordable
-                    <br />
-                    Prices
-                  </p>
-                </div>
-                </div>
-
-                <div className="flex flex-col">
-                <div className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
+                <div className="flex flex-col items-center">
+                  <div
+                    className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
                                justify-center text-center shadow-lg min-h-[100px] lg:h-[100px]
-                              max-w-[80px] lg:max-w-[100px]">
-                  <img
-                    src={LastIcon4}
-                    alt="Reliable Service"
-                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
-                  />
+                              max-w-[80px] lg:max-w-[100px]"
+                  >
+                    <img
+                      src={LastIcon4}
+                      alt="Reliable Service"
+                      className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                    />
+                  </div>
+
+                  <div className="text-center mt-2">
+                    <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                      Reliable
+                      <br />
+                      Service
+                    </p>
+                  </div>
                 </div>
 
-                <div className="text-center -ml-5 mt-2">
-                  <p className="text-[17px] font-poppins font-normal text-white leading-tight">
-                    Reliable
-                    <br />
-                    Service
-                  </p>
-                </div>
-                </div>
-
-                <div className="flex flex-col">
-                <div className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
+                <div className="flex flex-col items-center">
+                  <div
+                    className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
                                justify-center text-center shadow-lg min-h-[100px] lg:h-[100px]
-                               max-w-[80px] lg:max-w-[100px]">
-                  <img
-                    src={LastIcon5}
-                    alt="Special Offers"
-                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
-                  />
-                </div>
+                               max-w-[80px] lg:max-w-[100px]"
+                  >
+                    <img
+                      src={LastIcon5}
+                      alt="Special Offers"
+                      className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                    />
+                  </div>
 
-                 <div className="text-center -ml-5 mt-2">
-                  <p className="text-[17px] font-poppins font-normal text-white leading-tight">
-                    Special
-                    <br />
-                    Offers
-                  </p>
+                  <div className="text-center mt-2">
+                    <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                      Special
+                      <br />
+                      Offers
+                    </p>
+                  </div>
                 </div>
-                </div>
-
               </div>
-              
             </div>
 
             {/* Yellow Diagonal Section with Image - Hidden on mobile */}
@@ -847,7 +878,7 @@ const Home = () => {
               <div
                 className="absolute top-0 right-0 w-full h-full bg-[#F6B507] z-0 rounded-2xl"
                 style={{
-                  clipPath: "polygon(30% 0, 100% 0, 100% 100%, 0% 110%)",
+                  clipPath: "polygon(40% 0, 100% 0, 100% 100%, 0% 110%)",
                 }} // FIXED: Adjusted clip to 100% for full bottom coverage
               />
               {/* Full Mask Image - Less extreme positioning for visibility */}
@@ -860,7 +891,7 @@ const Home = () => {
                   className="w-full h-full object-cover object-top"
                   style={{
                     clipPath: "polygon(15% 0, 100% 0, 100% 100%, 0% 100%)",
-                    filter: "brightness(1.1) contrast(1.05)",
+                    filter: "brightness(1) contrast(1.05)",
                   }}
                 />
               </div>
@@ -868,7 +899,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+      
     </>
   );
 };
