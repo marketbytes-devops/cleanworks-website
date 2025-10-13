@@ -1,12 +1,12 @@
 import React from "react";
 
-const LeftEdgeBg = (className) => {
+const LeftEdgeBg = ({className}) => {
   return (
     <svg
       className={className}
-      width="148"
+      width="228"
       height="228"
-      viewBox="0 0 148 228"
+      viewBox="0 0 228 228"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

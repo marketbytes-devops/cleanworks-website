@@ -1,5 +1,5 @@
 
-const RightEdgeBg = (className) => {
+const RightEdgeBg = ({className}) => {
   return (
     <svg
       className={className}

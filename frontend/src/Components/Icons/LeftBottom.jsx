@@ -1,6 +1,6 @@
 import React from "react";
 
-const LeftBottom = (className) => {
+const LeftBottom = ({className}) => {
   return (
     <svg
       className={className}
