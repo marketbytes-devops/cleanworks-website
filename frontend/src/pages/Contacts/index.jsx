@@ -7,7 +7,7 @@ const Contacts = () => {
         <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
           {/* Contact Banner Card */}
           <div 
-            className="w-full max-w-[1240px] h-[413px] mx-auto rounded-3xl flex flex-col items-center justify-center"
+            className="w-full h-[413px] mx-auto rounded-3xl flex flex-col items-center justify-center"
             style={{ backgroundColor: '#FAEDC9' }}
           >
             <p className="text-[#051625] text-lg sm:text-xl md:text-2xl font-poppins font-normal mb-4">
@@ -23,7 +23,7 @@ const Contacts = () => {
       {/* Contact Information Cards */}
       <section className="mt-12 mb-16">
         <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
             
             {/* Address Card */}
             <div className="bg-white rounded-3xl p-8 shadow-lg flex flex-col items-center text-center h-[250px] justify-center">
@@ -71,7 +71,7 @@ const Contacts = () => {
         <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
           {/* Main Card - White Background with Shadow */}
           <div 
-            className="w-full max-w-[1240px] mx-auto bg-white rounded-2xl shadow-lg overflow-hidden"
+            className="w-full mx-auto bg-white rounded-2xl shadow-lg overflow-hidden"
             style={{ minHeight: '577px' }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2">

@@ -3,7 +3,7 @@ import Blog1 from "../../assets/Blog1.jpg";
 import Blog2 from "../../assets/Blog2.jpg";
 import Blog3 from "../../assets/Blog3.jpg";
 import Blog4 from "../../assets/Blog4.jpg";
-import ladyimage from "../../assets/ladyimage.jpg"; // Import the lady cleaning image
+import ladyimage from "../../assets/ladyimage.jpg";
 import { FiArrowUpRight } from "react-icons/fi";
 
 const Services = () => {
@@ -44,12 +44,12 @@ const Services = () => {
   ];
 
   return (
-    <>
+    <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
       <section className="mt-28">
-        <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
+        <div className="px-4 sm:px-6">
           {/* Services Banner Card */}
           <div
-            className="w-full max-w-[1240px] h-[413px] mx-auto rounded-3xl flex flex-col items-center justify-center"
+            className="w-full h-[413px] mx-auto rounded-3xl flex flex-col items-center justify-center"
             style={{ backgroundColor: "#FAEDC9" }}
           >
             {/* Small Heading */}
@@ -77,7 +77,7 @@ const Services = () => {
       {/* Services Cards Section */}
       <section className="mt-12 sm:mt-16 lg:mt-20 mb-20">
         <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
-          <div className="max-w-[1240px] mx-auto">
+          <div className= "mx-auto">
             {/* First Row - 3 Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               {servicesData.slice(0, 3).map((service) => (
@@ -202,7 +202,7 @@ const Services = () => {
       {/* CTA Section - Request a Quote */}
       <section className="mb-20">
         <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
-          <div className="max-w-[1240px] mx-auto">
+          <div className= "mx-auto">
             {/* Main Card with Background Image */}
             <div
               className="relative w-full rounded-3xl overflow-hidden"
@@ -225,7 +225,6 @@ const Services = () => {
               />
 
               {/* Content Container */}
-              {/* Content Container */}
               <div className="relative h-full flex items-center px-8 lg:px-12">
                 <div className="w-full flex items-center justify-between">
                   {/* Text Content - You can control position here */}
@@ -234,7 +233,7 @@ const Services = () => {
                     style={{
                       backgroundColor: "#FFFFFFAD",
                       maxWidth: "510px",
-                      marginLeft: "200px", // Change this value to move text left/right
+                      marginLeft: "200px",
                     }}
                   >
                     <p className="text-[#1E1548] text-lg sm:text-xl md:text-2xl font-poppins font-semibold leading-relaxed">
@@ -263,7 +262,7 @@ const Services = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
