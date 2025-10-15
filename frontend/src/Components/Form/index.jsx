@@ -2,6 +2,19 @@ import { useState } from "react";
 import Button from "../Button";
 import DownArrow from "../Icons/DownArrow";
 
+const Popup = ({ message, onClose }) => (
+  <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
+    <div className="bg-white p-6 rounded-xl shadow-lg text-center">
+      <p className="mb-4 text-lg font-poppins">{message}</p>
+      <Button 
+        onClick={onClose}
+        className="bg-[#272469] hover:bg-[#6EA01E] text-white rounded-full px-6 py-2 font-poppins"
+      >
+        Close
+      </Button>
+    </div>
+  </div>
+);
 
 const ContactForm = ({ 
   title = "Contact With Us",
@@ -15,6 +28,9 @@ const ContactForm = ({
     residence: "",
     message: ""
   });
+
+  const [showPopup, setShowPopup] = useState(false);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,6 +50,7 @@ const ContactForm = ({
       residence: "",
       message: ""
     });
+    setShowPopup(true);
   };
 
   const residenceOptions = [
@@ -143,6 +160,14 @@ const ContactForm = ({
           </Button>
         </div>
       </form>
+
+       {showPopup && (
+        <Popup 
+          message="Your message has been submitted successfully!" 
+          onClose={() => setShowPopup(false)} 
+        />
+      )}
+
     </div>
   );
 };

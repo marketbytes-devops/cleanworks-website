@@ -3,11 +3,22 @@ import cleanworksLogo from '../../assets/cleanworks-logo 1.png';
 import HomeIcon from '../../Components/Icons/HomeIcon';
 import almasLogo from '../../assets/subsidiary-of-almas-movers 1.png';
 import Button from '../../Components/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Form from '../../Components/Form';
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+  const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -22,7 +33,9 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full bg-white fixed top-0 z-50">
+      <nav className={`w-full bg-white fixed top-0 z-50 transition-shadow duration-300 ${
+        isScrolled ? 'shadow-lg' : ''
+      }`}>
         <div className="container max-w-[95%] mx-auto px-12 py-4 flex items-center justify-between h-18">
           <img src={cleanworksLogo} alt="Clean Works Logo" className="h-10 md:h-12 lg:h-14 w-auto" />
 
@@ -79,8 +92,8 @@ const Navbar = () => {
               </Button>
             </div>
             <ul className="flex flex-col items-center gap-6 py-6 font-medium text-lg">
-              <li><Link to="/about" onClick={() => setIsOpen(false)}>About Us</Link></li>
-              <li><Link to="/service" onClick={() => setIsOpen(false)}>Service</Link></li>
+              <li><Link to="/about-us" onClick={() => setIsOpen(false)}>About Us</Link></li>
+              <li><Link to="/services" onClick={() => setIsOpen(false)}>Service</Link></li>
               <li><Link to="/service-fee" onClick={() => setIsOpen(false)}>Service Fee</Link></li>
               <li><Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link></li>
               <li><Link to="/contacts" onClick={() => setIsOpen(false)}>Contacts</Link></li>
