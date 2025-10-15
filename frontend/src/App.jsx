@@ -3,11 +3,11 @@ import { RouterProvider } from "react-router-dom";
 import Layout from "./layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import Services from "./pages/Services";  // Main Services (index.jsx)
-import ServicesInner from "./pages/Services/ServicesInner";  // FIXED: Separate import for inner
+import Services from "./pages/Services";
+import ServicesInner from "./pages/Services/ServicesInner";
 import ServiceFee from "./pages/ServiceFee";
-import Blog from "./pages/Blog";  // Main Blog (index.jsx)
-import BlogInner from "./pages/Blog/BlogInner";  // FIXED: Separate import for inner
+import Blog from "./pages/Blog";
+import BlogInner from "./pages/Blog/BlogInner";
 import Contacts from "./pages/Contacts";
 
 const router = createBrowserRouter([
@@ -17,20 +17,24 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "about-us", Component: About },
-      { 
-        path: "services", 
-        Component: Services, 
-        children: [{ path: ":id", Component: ServicesInner }]  
+      {
+        path: "services",
+        children: [
+          { index: true, Component: Services },
+          { path: ":id", Component: ServicesInner },
+        ],
       },
       { path: "service-fee", Component: ServiceFee },
-      { 
-        path: "blog", 
-        Component: Blog, 
-        children: [{ path: ":id", Component: BlogInner }]  
+      {
+        path: "blog",
+        children: [
+          { index: true, Component: Blog },
+          { path: ":id", Component: BlogInner },
+        ],
       },
       { path: "contacts", Component: Contacts },
-    ]
-  }
+    ],
+  },
 ]);
 
 function App() {

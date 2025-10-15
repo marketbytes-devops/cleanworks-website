@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import cleanworksLogo from '../../assets/cleanworks-logo 1.png';
 import HomeIcon from '../../Components/Icons/HomeIcon';
 import almasLogo from '../../assets/subsidiary-of-almas-movers 1.png';
@@ -31,6 +31,11 @@ const Navbar = () => {
     setIsModalOpen(false);
   };
 
+  const linkClassName = ({ isActive }) =>
+    isActive
+      ? 'text-black font-bold' // Active link: bold
+      : 'text-gray-600 hover:text-gray-900'; // Inactive link: default styling
+
   return (
     <>
       <nav className={`w-full bg-white fixed top-0 z-50 transition-shadow duration-300 ${
@@ -56,15 +61,15 @@ const Navbar = () => {
           <div className="hidden lg:flex lg:items-center">
             <ul className="flex items-center gap-4 xl:gap-9 font-medium xl:text-lg md:text-[16px]">
               <li>
-                <Link to="/">
+                <NavLink to="/" className={linkClassName}>
                   <HomeIcon className="h-6 w-auto" />
-                </Link>
+                </NavLink>
               </li>
-              <li><Link to="/about-us">About Us</Link></li>
-              <li><Link to="/services">Service</Link></li>
-              <li><Link to="/service-fee">Service Fee</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/contacts">Contacts</Link></li>
+              <li><NavLink to="/about-us" className={linkClassName}>About Us</NavLink></li>
+              <li><NavLink to="/services" className={linkClassName}>Service</NavLink></li>
+              <li><NavLink to="/service-fee" className={linkClassName}>Service Fee</NavLink></li>
+              <li><NavLink to="/blog" className={linkClassName}>Blog</NavLink></li>
+              <li><NavLink to="/contacts" className={linkClassName}>Contacts</NavLink></li>
               <li>
                 <Button 
                   onClick={openModal}
@@ -92,7 +97,7 @@ const Navbar = () => {
               </Button>
             </div>
             <ul className="flex flex-col items-center gap-6 py-6 font-medium text-lg">
-              <li><Link to="/about-us" onClick={() => setIsOpen(false)}>About Us</Link></li>
+              <li><NavLink to="/about-us" onClick={() => setIsOpen(false)}>About Us</NavLink></li>
               <li><Link to="/services" onClick={() => setIsOpen(false)}>Service</Link></li>
               <li><Link to="/service-fee" onClick={() => setIsOpen(false)}>Service Fee</Link></li>
               <li><Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link></li>

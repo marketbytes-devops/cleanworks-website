@@ -20,7 +20,6 @@ import CardIcon6 from "../../Components/Icons/CardIcon6.png";
 
 import about from "../../assets/about.jpg";
 import Location from "../../Components/Icons/Location.png";
-import LocationIcon from "../../Components/Icons/LocationIcon";
 import Marquee from "react-fast-marquee";
 import CalendarIcon from "../../Components/Icons/CalendarIcon";
 import HandshakeIcon from "../../Components/Icons/HandshakeIcon";
@@ -625,9 +624,9 @@ const Home = () => {
             </Button>
             <Button
               onClick={handleNextTestimonial}
-              className="absolute right-[-25px] lg:right-[-50px] top-1/2 transform -translate-y-1/2  bg-blue-950 
-                         hover:bg-blue-900 text-white p-3 rounded-full z-20 transition-colors"
-            >
+              className="absolute right-[-25px] lg:right-[-50px] top-1/2 transform -translate-y-1/2
+                       bg-gray-200 hover:bg-blue-950 text-white p-3 rounded-full
+                        z-20 transition-colors">
               <GrNext className="w-5 h-5" />
             </Button>
 

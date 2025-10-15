@@ -1,19 +1,22 @@
 import { MapPin, Phone, Mail } from 'lucide-react';
+import Location from "../../Components/Icons/Location.png"
+import TeleIcon from '../../Components/Icons/TeleIcon.png';
+import ContactMailIcon from '../../Components/Icons/ContactMailIcon';
 
 const Contacts = () => {
   return (
     <>
       <section className="mt-28">
-        <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-[95%] px-12">
           {/* Contact Banner Card */}
           <div 
             className="w-full h-[413px] mx-auto rounded-3xl flex flex-col items-center justify-center"
             style={{ backgroundColor: '#FAEDC9' }}
           >
-            <p className="text-[#051625] text-lg sm:text-xl md:text-2xl font-poppins font-normal mb-4">
+            <p className="text-[#051625] text-lg font-poppins font-normal mb-4">
               We'd love to hear from you!
             </p>
-            <h1 className="text-[#051625] text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-dolce font-bold">
+            <h1 className="text-[#051625] text-4xl  font-bold">
               Contact us
             </h1>
           </div>
@@ -22,13 +25,13 @@ const Contacts = () => {
 
       {/* Contact Information Cards */}
       <section className="mt-12 mb-16">
-        <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-[95%] px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
             
             {/* Address Card */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg flex flex-col items-center text-center h-[250px] justify-center">
+            <div className="bg-white rounded-3xl p-8 shadow-xl flex flex-col items-center text-center h-[250px] justify-center">
               <div className="mb-4">
-                <MapPin className="w-12 h-12 text-pink-500" strokeWidth={2} />
+                <img src={Location} />
               </div>
               <h3 className="text-2xl font-bold text-[#051625] mb-3 font-poppins">Address</h3>
               <p className="text-gray-600 leading-relaxed font-poppins text-sm">
@@ -41,7 +44,8 @@ const Contacts = () => {
             {/* Phone Number Card */}
             <div className="bg-white rounded-3xl p-8 shadow-lg flex flex-col items-center text-center h-[250px] justify-center">
               <div className="mb-4">
-                <Phone className="w-12 h-12 text-cyan-500" strokeWidth={2} />
+                {/* <Phone className="w-12 h-12 text-cyan-500" strokeWidth={2} /> */}
+                <img src={TeleIcon} className='w-14 h-14 -rotate-90'/>
               </div>
               <h3 className="text-2xl font-bold text-[#051625] mb-3 font-poppins">Phone Number</h3>
               <p className="text-gray-600 leading-relaxed font-poppins">
@@ -53,7 +57,7 @@ const Contacts = () => {
             {/* Email Card */}
             <div className="bg-white rounded-3xl p-8 shadow-lg flex flex-col items-center text-center h-[250px] justify-center">
               <div className="mb-4">
-                <Mail className="w-12 h-12 text-blue-500" strokeWidth={2} />
+                <ContactMailIcon />
               </div>
               <h3 className="text-2xl font-bold text-[#051625] mb-3 font-poppins">Email Us</h3>
               <p className="text-gray-600 leading-relaxed font-poppins text-sm">
@@ -68,7 +72,7 @@ const Contacts = () => {
 
       {/* Contact Form and Map Section */}
       <section className="mb-20">
-        <div className="container mx-auto max-w-[95%] px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto max-w-[95%] px-12">
           {/* Main Card - White Background with Shadow */}
           <div 
             className="w-full mx-auto bg-white rounded-2xl shadow-lg overflow-hidden"

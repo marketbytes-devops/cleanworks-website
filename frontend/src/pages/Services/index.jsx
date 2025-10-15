@@ -28,36 +28,36 @@ const Services = () => {
       id: 2,
       image: DeepCleaningImg,
       title: "DEEP CLEANING SERVICES",
-      path: "/services/residential-cleaning"
+      path: "/services/deep-cleaning"
     },
     {
       id: 3,
       image: MoveInOutImg,
       title: "MOVE IN / OUT CLEANING",
-      path: "/services/residential-cleaning"
+      path: "/services/move-in-out-cleaning"
     },
     {
       id: 4,
       image: OutDoorImg,
       title: "OUTDOOR CLEANING",
-      path: "/services/residential-cleaning"
+      path: "/services/outdoor-cleaning"
     },
     {
       id: 5,
       image: WaterTankImg,
       title: "WATER TANK CLEANING",
-      path: "/services/residential-cleaning"
+      path: "/services/water-tank-cleaning"
     },
     {
       id: 6,
       image: MattressCleaningImg,
       title: "MATTRESS CLEANING",
-      path: "/services/residential-cleaning"
+      path: "/services/mattress-cleaning"
     },
   ];
 
   const sliderSettings = {
-    dots: false, // Show dots
+    dots: false, 
     infinite: true, // Infinite loop
     speed: 500, // Transition speed
     slidesToShow: 1, // Cards per view
@@ -76,19 +76,20 @@ const Services = () => {
       <section className="mt-28 container mx-auto max-w-[95%] px-12">
         {/* Services Banner Card */}
         <div
-          className="w-full h-[413px] mx-auto rounded-3xl flex flex-col items-center justify-center"
+          className="w-full h-[250px]  md:h-[413px] mx-auto rounded-3xl flex flex-col 
+                    items-center justify-center"
           style={{ background: "linear-gradient(to right, #FAEDC9, #EFF9DF)" }}
         >
           {/* Small Heading */}
           <p
-            className="text-[#051625] text-base sm:text-lg  font-poppins font-medium mb-2 
+            className="text-[#051625] text-[16px] sm:text-lg  font-poppins font-medium mb-2 
                           text-center"
           >
             Lorem Ipsum is simply dummy text
           </p>
 
           {/* Large Heading - Services */}
-          <h1 className="text-[#051625] text-5xl font-poppins font-semibold text-center">
+          <h1 className="text-[#051625] text-3xl sm:text-5xl font-poppins font-semibold text-center">
             Services
           </h1>
         </div>
@@ -240,7 +241,7 @@ const Services = () => {
 
       {/* CTA Section - Request a Quote */}
       <section className="mb-20 md:mt-28 mt-10">
-        <div className="container mx-auto max-w-[95%]  px-8 md:px-12">
+        <div className="container mx-auto max-w-[95%]  px-10 md:px-12">
           <div className="mx-auto">
             {/* Main Card with Background Image */}
             <div className="relative w-full rounded-3xl overflow-hidden h-[400px] sm:h-[350px] md:h-[280px] lg:h-[210px]">

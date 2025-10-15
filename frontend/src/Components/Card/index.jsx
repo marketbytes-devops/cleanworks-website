@@ -6,7 +6,7 @@ const AnimatedCard = ({ icon:Icon, title, description, linkText, desc_className=
 
   return (
     <div 
-      className={`p-8 bg-white rounded-xl shadow-xl transition-transform 
+      className={`p-8 bg-white rounded-xl shadow-lg transition-transform 
                  duration-300 hover:-translate-y-2 ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
