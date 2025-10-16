@@ -372,15 +372,16 @@ const Home = () => {
                       <span className="bg-[#6EA01E] px-3 py-1 font-poppins text-[12px] sm:text-[18px]">
                         Clean Works Cleaning Services
                       </span>
-                      <h1 className="text-sm sm:text-3xl md:text-[45px] font-dolce mt-2">
+                      <h1 className="text-[10px] sm:text-2xl md:text-3xl lg:text-[45px] font-dolce mt-2">
                         BRINGING FRESHNESS TO EVERY CORNER OF QATAR
                       </h1>
 
                       <Button
-                        className="lg:mt-4 mt-0 px-2 py-2 md:px-8 md:py-3 bg-yellow-500 hover:bg-[#272469] 
+                        className="lg:mt-4 md:mt-3 sm:mt-2 px-1 py-1 sm:px-3 sm:py-2 md:px-8 md:py-3 bg-yellow-500 
+                                 hover:bg-[#272469] md:text-[18px] text-[15px]
                                   font-poppins rounded-full flex items-center gap-2"
                       >
-                        <PhoneIcon className="w-3 h-3 sm:w-5 sm:h-5" />
+                        <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                         Call Us Today
                       </Button>
                     </div>
@@ -519,7 +520,7 @@ const Home = () => {
             </ul>
             <Button
               className="bg-[#6EA01E] text-white lg:w-32 w-56 h-12 rounded-3xl mt-5
-          hover:bg-amber-300 font-dm-sans text-[15px]"
+                        hover:bg-amber-300 font-dm-sans text-[15px]"
             >
               Learn More
             </Button>
@@ -556,9 +557,9 @@ const Home = () => {
       {/* WorkSection */}
       <section className="w-full mx-auto mt-20">
         <div className="relative max-w-[100%] h-96 mx-auto bg-[#272469] text-white ">
-          <div className="mx-20 py-10">
-            <p className="text-xl font-poppins">How It Works</p>
-            <h4 className="text-4xl font-dolce">FOLLOW 4 EASY STEPS</h4>
+          <div className="mx-14 md:mx-20 py-10">
+            <p className="text-[15px] sm:text-xl font-poppins">How It Works</p>
+            <h4 className="text-[30px] sm:text-4xl font-dolce">FOLLOW 4 EASY STEPS</h4>
           </div>
 
           <div className="absolute inset-0 z-0">
@@ -625,7 +626,8 @@ const Home = () => {
             <Button
               onClick={handleNextTestimonial}
               className="absolute right-[-25px] lg:right-[-50px] top-1/2 transform -translate-y-1/2
-                       bg-gray-200 hover:bg-blue-950 text-white p-3 rounded-full
+                       bg-gray-200 hover:bg-blue-950 text-gray-600 hover:text-white
+                        p-3 rounded-full
                         z-20 transition-colors">
               <GrNext className="w-5 h-5" />
             </Button>
@@ -749,14 +751,14 @@ const Home = () => {
 
             {/* Main Content Section */}
             <div className="relative z-10 p-6  w-full lg:w-[70%]">
-              <p className="text-[18px] text-[#F6B507] font-poppins px-4">
+              <p className="text-[15px] md:text-[18px] text-[#F6B507] font-poppins px-4">
                 Why You Should Choose Us
               </p>
-              <h6 className="text-[30px] lg:text-[40px] font-dolce text-white mb-3 px-4">
+              <h6 className="text-[20px] md:text-[30px] lg:text-[40px] font-dolce text-white mb-3 px-4">
                 REASONS TO CHOOSE US
               </h6>
 
-              <div className="grid grid-cols-5 gap-10 2xl:mt-18 mt-0">
+              <div className="grid  sm:grid-cols-5 gap-10 2xl:mt-18 mt-0">
                 <div className="flex flex-col items-center ">
                   <div
                     className="bg-white rounded-xl p-4 lg:p-6 flex flex-col items-center 
@@ -766,12 +768,12 @@ const Home = () => {
                     <img
                       src={LastIcon1}
                       alt="Qualified Experts"
-                      className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                      className="w-full h-auto md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain"
                     />
                   </div>
 
                   <div className="text-center mt-2">
-                    <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                    <p className="text-[15px] md:text-[17px] font-poppins font-normal text-white leading-tight">
                       Qualified
                       <br />
                       Experts
@@ -788,12 +790,12 @@ const Home = () => {
                     <img
                       src={LastIcon2}
                       alt="Service on Schedule"
-                      className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                      className="w-full h-auto md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain"
                     />
                   </div>
 
                   <div className="text-center mt-2">
-                    <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                    <p className="text-[15px] md:text-[17px] font-poppins font-normal text-white leading-tight">
                       Service on
                       <br />
                       Schedule
@@ -810,12 +812,12 @@ const Home = () => {
                     <img
                       src={LastIcon3}
                       alt="Affordable Prices"
-                      className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                      className="w-full h-auto md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain"
                     />
                   </div>
 
                   <div className="text-center mt-2">
-                    <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                    <p className="text-[15px] md:text-[17px] font-poppins font-normal text-white leading-tight">
                       Affordable
                       <br />
                       Prices
@@ -832,12 +834,12 @@ const Home = () => {
                     <img
                       src={LastIcon4}
                       alt="Reliable Service"
-                      className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                      className="w-full h-auto md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain"
                     />
                   </div>
 
                   <div className="text-center mt-2">
-                    <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                    <p className="text-[15px] md:text-[17px] font-poppins font-normal text-white leading-tight">
                       Reliable
                       <br />
                       Service
@@ -854,12 +856,12 @@ const Home = () => {
                     <img
                       src={LastIcon5}
                       alt="Special Offers"
-                      className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
+                      className="w-full h-auto md:w-12 md:h-12 lg:w-16 lg:h-16 object-contain"
                     />
                   </div>
 
                   <div className="text-center mt-2">
-                    <p className="text-[17px] font-poppins font-normal text-white leading-tight">
+                    <p className="text-[15px] md:text-[17px] font-poppins font-normal text-white leading-tight">
                       Special
                       <br />
                       Offers

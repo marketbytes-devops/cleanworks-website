@@ -87,7 +87,7 @@ const Navbar = () => {
 
         {/* Mobile Dropdown */}
         {isOpen && (
-          <div className="lg:hidden fixed top-0 left-0 w-full h-screen bg-blue-950 shadow-md z-60">
+          <div className="lg:hidden fixed top-0 left-0 w-full h-screen text-white bg-blue-950 shadow-md z-60">
             <div className="flex justify-end p-4">
               <Button
                 onClick={() => setIsOpen(false)}
@@ -97,6 +97,11 @@ const Navbar = () => {
               </Button>
             </div>
             <ul className="flex flex-col items-center gap-6 py-6 font-medium text-lg">
+               <li>
+                <NavLink to="/" className={linkClassName}  onClick={() => setIsOpen(false)}>
+                  <HomeIcon className="h-6 w-auto text-white" />
+                </NavLink>
+              </li>
               <li><NavLink to="/about-us" onClick={() => setIsOpen(false)}>About Us</NavLink></li>
               <li><Link to="/services" onClick={() => setIsOpen(false)}>Service</Link></li>
               <li><Link to="/service-fee" onClick={() => setIsOpen(false)}>Service Fee</Link></li>
@@ -105,7 +110,8 @@ const Navbar = () => {
               <li>
                 <Button 
                   onClick={openModal}
-                  className="bg-[#6EA01E] text-white w-xl h-12 rounded-4xl text-center hover:bg-amber-300"
+                  className="bg-[#6EA01E] text-white w-screen h-12 rounded-4xl text-center
+                           hover:bg-amber-300"
                 >
                   Get a quote
                 </Button>
